@@ -1,0 +1,15 @@
+<span id="icone" style="cursor: pointer; font-size: 24px;">❓</span>
+<p id="dica" style="display: none;">Clique aqui para saber mais</p>
+
+<script>
+  const icone = document.getElementById('icone');
+  const dica = document.getElementById('dica');
+
+  icone.addEventListener('mouseover', function() {
+    dica.style.display = 'block';
+  });
+
+  icone.addEventListener('mouseout', function() {
+    dica.style.display = 'none';
+  });
+</script>
