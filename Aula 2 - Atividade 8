@@ -1,0 +1,12 @@
+<p>Largura da janela: <span id="largura"></span>px</p>
+
+<script>
+  const larguraTexto = document.getElementById('largura');
+
+  function atualizarLargura() {
+    larguraTexto.textContent = window.innerWidth;
+  }
+
+  atualizarLargura();
+  window.addEventListener('resize', atualizarLargura);
+</script>
