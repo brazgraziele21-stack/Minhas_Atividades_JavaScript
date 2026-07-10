@@ -1,0 +1,18 @@
+<form id="formulario">
+  <input type="text" id="campoTexto" placeholder="Digite algo...">
+  <button type="submit">Enviar</button>
+</form>
+<p id="mensagem"></p>
+
+<script>
+  document.getElementById('formulario').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const campo = document.getElementById('campoTexto');
+
+    if (campo.value.trim() === '') {
+      document.getElementById('mensagem').textContent = 'Preencha o campo antes de enviar!';
+    } else {
+      document.getElementById('mensagem').textContent = 'Enviado com sucesso!';
+    }
+  });
+</script>
