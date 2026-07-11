@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 5: Funções e Modularização</title>
+</head>
+<body>
+<script>
+// Exercício 35: Função Fatorial Recursiva
+
+function fatorialRecursivo(n) {
+  if (n <= 1) return 1;
+  return n * fatorialRecursivo(n - 1);
+}
+
+const numero35 = Number(prompt("Digite um número para calcular o fatorial:"));
+alert(`O fatorial de ${numero35} é ${fatorialRecursivo(numero35)}`);
+
+
+// Exercício 36: MDC (Algoritmo de Euclides)
+
+function calcularMDC(a, b) {
+  while (b !== 0) {
+    const resto = a % b;
+    a = b;
+    b = resto;
+  }
+  return a;
+}
+
+const a36 = Number(prompt("Digite o primeiro número:"));
+const b36 = Number(prompt("Digite o segundo número:"));
+alert(`O MDC entre ${a36} e ${b36} é ${calcularMDC(a36, b36)}`);
+
+
+// Exercício 37: Validação de Primo
+
+function ehPrimo(n) {
+  if (n < 2) return false;
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) return false;
+  }
+  return true;
+}
+
+const numero37 = Number(prompt("Digite um número inteiro:"));
+alert(`${numero37} é primo? ${ehPrimo(numero37) ? "Sim" : "Não"}`);
+
+
+// Exercício 38: Calculadora com Arrow Functions
+
+const soma = (a, b) => a + b;
+const subtracao = (a, b) => a - b;
+const multiplicacao = (a, b) => a * b;
+const divisao = (a, b) => (b !== 0 ? a / b : "Erro: divisão por zero");
+
+function calculadora(a, b, operacao) {
+  let resultado;
+  switch (operacao) {
+    case "soma": resultado = soma(a, b); break;
+    case "subtracao": resultado = subtracao(a, b); break;
+    case "multiplicacao": resultado = multiplicacao(a, b); break;
+    case "divisao": resultado = divisao(a, b); break;
+    default: resultado = "Operação inválida";
+  }
+  return resultado;
+}
+
+const a38 = Number(prompt("Digite o primeiro número:"));
+const b38 = Number(prompt("Digite o segundo número:"));
+const operacao38 = prompt("Digite a operação (soma, subtracao, multiplicacao, divisao):");
+alert(`Resultado: ${calculadora(a38, b38, operacao38)}`);
+
+
+// Exercício 39: Conversão de temperatura Bidirecional
+
+function cParaF(c) { return (c * 9) / 5 + 32; }
+function fParaC(f) { return ((f - 32) * 5) / 9; }
+
+const opcao39 = prompt("Qual conversão deseja fazer?\n1 - Celsius para Fahrenheit\n2 - Fahrenheit para Celsius");
+if (opcao39 === "1") {
+  const c39 = Number(prompt("Digite a temperatura em °C:"));
+  alert(`${c39}°C equivalem a ${cParaF(c39).toFixed(1)}°F`);
+} else if (opcao39 === "2") {
+  const f39 = Number(prompt("Digite a temperatura em °F:"));
+  alert(`${f39}°F equivalem a ${fParaC(f39).toFixed(1)}°C`);
+} else {
+  alert("Opção inválida.");
+}
+
+
+// Exercício 40: Dia da semana em Array
+
+const dias = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+
+function obterDiaDaSemana(n) {
+  if (n < 1 || n > 7) return "Número inválido";
+  return dias[n - 1];
+}
+
+const numero40 = Number(prompt("Digite um número de 1 a 7:"));
+alert(`O dia correspondente é: ${obterDiaDaSemana(numero40)}`);
+</script>
+</body>
+</html>
