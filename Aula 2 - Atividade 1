@@ -1,8 +1,0 @@
-<p id="texto">Este é o texto original.</p>
-<button id="btnMudar">Mudar texto</button>
-
-<script>
-  document.getElementById('btnMudar').addEventListener('click', function() {
-    document.getElementById('texto').textContent = 'O texto mudou!';
-  });
-</script>
