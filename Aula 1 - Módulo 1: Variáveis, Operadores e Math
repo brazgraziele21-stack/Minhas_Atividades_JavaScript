@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 1: Variáveis, Operadores e Math</title>
+</head>
+<body>
+<script>
+    // Exercício 1: Área de um círculo
+  const raio = Number(prompt("Digite o raio do círculo:"));
+  const area = Math.PI * Math.pow(raio, 2);
+  alert(`A área do círculo com raio ${raio} é ${area.toFixed(2)}`);
+
+// Exercício 2: Idade exata do usuário
+  const anoNascimento = Number(prompt("Digite seu ano de nascimento:"));
+  const anoAtual = new Date().getFullYear();
+  const idade = anoAtual - anoNascimento;
+  alert(`Você tem (ou completa) ${idade} anos em ${anoAtual}.`);
+
+
+// Exercício 3: Quem é mais velho?
+  const idade1 = Number(prompt("Digite a idade da primeira pessoa:"));
+  const idade2 = Number(prompt("Digite a idade da segunda pessoa:"));
+
+  if (idade1 === idade2) {
+    alert("As duas pessoas têm a mesma idade.");
+  } else if (idade1 > idade2) {
+    alert("A primeira pessoa é mais velha.");
+  } else {
+    alert("A segunda pessoa é mais velha.");
+  }
+
+  const maiorIdade = Math.max(idade1, idade2);
+  console.log(`A maior idade entre elas é ${maiorIdade}.`);
+
+
+// Exercício 4: Hipotenusa
+  const catetoA = Number(prompt("Digite o valor do cateto A:"));
+  const catetoB = Number(prompt("Digite o valor do cateto B:"));
+  const hipotenusa = Math.hypot(catetoA, catetoB);
+  alert(`A hipotenusa é ${hipotenusa.toFixed(2)}`);
+
+
+// Exercício 5: Desconto de 15%
+  const preco = Number(prompt("Digite o preço do produto:"));
+  const desconto = preco * 0.15;
+  const precoFinal = preco - desconto;
+  alert(`Valor do desconto: ${desconto.toFixed(2)}\nValor final: ${precoFinal.toFixed(2)}`);
+
+
+// Exercício 6: Converter Celsius para Fahrenheit
+  const celsius = Number(prompt("Digite a temperatura em °C:"));
+  const fahrenheit = (celsius * 9) / 5 + 32;
+  alert(`${celsius}°C equivalem a ${fahrenheit.toFixed(1)}°F`);
+
+
+// Exercício 7: Sorteio
+  const numeroSorteado = Math.floor(Math.random() * 100) + 1;
+  alert(`O número sorteado foi: ${numeroSorteado}`);
+
+
+// Exercício 8: Triplo menos cinco
+  const numero = Number(prompt("Digite um número:"));
+  const resultado = 3 * numero - 5;
+  alert(`3 * ${numero} - 5 = ${resultado}`);
+
+</script>
+</body>
+</html>
