@@ -1,8 +1,0 @@
-<input type="text" id="campoDigitacao" placeholder="Digite algo...">
-<p id="espelho"></p>
-
-<script>
-  document.getElementById('campoDigitacao').addEventListener('input', function(event) {
-    document.getElementById('espelho').textContent = event.target.value;
-  });
-</script>
