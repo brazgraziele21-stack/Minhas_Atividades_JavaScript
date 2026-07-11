@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 - Formulário com verificação</title>
+</head>
+<body>
+    <form id="formulario">
+  <input type="text" id="campoFormulario" placeholder="Digite algo...">
+  <button type="submit">Enviar</button>
+</form>
+
+<script>
+  const formulario = document.getElementById("formulario");
+  const campoFormulario = document.getElementById("campoFormulario");
+
+  formulario.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (campoFormulario.value.trim() === "") {
+      alert("O campo não pode estar vazio!");
+    } else {
+      alert(`Formulário enviado com: ${campoFormulario.value}`);
+    }
+  });
+</script>
+</body>
+</html>
