@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 - Mostrar dica ao passar o mouse</title>
+</head>
+<body>
+    <span id="icone" style="cursor: pointer; font-size: 24px;">?</span>
+<span id="dica" style="display: none; margin-left: 10px;">Clique aqui para saber mais</span>
+
+<script>
+  const icone = document.getElementById("icone");
+  const dica = document.getElementById("dica");
+
+  icone.addEventListener("mouseover", () => {
+    dica.style.display = "inline";
+  });
+
+  icone.addEventListener("mouseout", () => {
+    dica.style.display = "none";
+  });
+</script>
+</body>
+</html>
