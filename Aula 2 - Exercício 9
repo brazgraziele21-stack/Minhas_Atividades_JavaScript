@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9 - Texto infinito</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+
+        }
+        #containerInfinito p {
+            padding: 20px;
+            margin: 0 0 10px 0;
+            background: #f0f0f0;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+        #avisoTopo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #141516;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-size: 16px;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+<div id="avisoTopo">Role a página para baixo para ver mais parágrafos aparecerem!</div>
+
+<div style="height: 60px;"></div>
+
+<div id="containerInfinito">
+    <p>Parágrafo inicial. Role a página para baixo.</p>
+    <p style="height: 800px; background: none;">Continue rolando... </p>
+</div>
+
+<script>
+  const container = document.getElementById("containerInfinito");
+
+  window.addEventListener("scroll", () => {
+    const chegouAoFinal =
+      window.innerHeight + window.scrollY >= document.body.offsetHeight - 10;
+
+    if (chegouAoFinal) {
+      const novoParagrafo = document.createElement("p");
+      novoParagrafo.textContent = "Mais um parágrafo carregado automaticamente.";
+      container.appendChild(novoParagrafo);
+    }
+  });
+</script>
+</body>
+</html>
