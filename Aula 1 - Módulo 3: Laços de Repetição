@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 3: Laços de Repetição</title>
+</head>
+<body>
+<script>
+// Exercício 17: Fatorial
+const numeroFatorial = Number(prompt("Digite um número para calcular o fatorial:"));
+let fatorial = 1;
+for (let i = numeroFatorial; i > 1; i--) {
+  fatorial *= i;
+}
+alert(`O fatorial de ${numeroFatorial} é ${fatorial}`);
+
+
+// Exercício 18: Soma de pares num intervalo
+let somaPares = 0;
+for (let i = 1; i <= 100; i++) {
+  if (i % 2 === 0) somaPares += i;
+}
+alert(`A soma dos números pares de 1 a 100 é ${somaPares}`);
+
+
+// Exercício 19: Múltiplos de 3
+let contador = 0;
+let numeroMultiplo = 1;
+let resultadoMultiplos = "";
+
+while (contador < 20) {
+  if (numeroMultiplo % 3 === 0) {
+    resultadoMultiplos += numeroMultiplo + " ";
+    contador++;
+  }
+  numeroMultiplo++;
+}
+
+alert(`Os 20 primeiros múltiplos de 3 são:\n${resultadoMultiplos}`);
+
+
+// Exercício 20: Menu iterativo
+let opcao;
+do {
+  opcao = prompt("Menu:\n1 - Opção A\n2 - Opção B\nDigite 'sair' para encerrar");
+  if (opcao.toLowerCase() !== "sair") {
+    alert(`Você escolheu: ${opcao}`);
+  }
+} while (opcao.toLowerCase() !== "sair");
+
+alert("Programa encerrado.");
+
+
+// Exercício 21: Contar positivos e negativos
+const nContagem = Number(prompt("Quantos números você deseja informar?"));
+let qtdPositivos = 0;
+let qtdNegativos = 0;
+
+for (let i = 0; i < nContagem; i++) {
+  const numero = Number(prompt(`Digite o número ${i + 1}:`));
+  if (numero > 0) qtdPositivos++;
+  else if (numero < 0) qtdNegativos++;
+}
+
+alert(`Positivos: ${qtdPositivos}\nNegativos: ${qtdNegativos}`);
+
+
+// Exercício 22: Tabuada completa
+let resultadoTabuada = "";
+for (let i = 1; i <= 10; i++) {
+  for (let j = 1; j <= 10; j++) {
+    resultadoTabuada += `${i} x ${j} = ${i * j}\n`;
+  }
+  resultadoTabuada += "\n";
+}
+console.log(resultadoTabuada);
+alert("Tabuada gerada! Veja o resultado no console.");
+
+
+// Exercício 23: Validação de senha
+const SENHA_CORRETA = "1234";
+let senha;
+do {
+  senha = prompt("Digite a senha:");
+} while (senha !== SENHA_CORRETA);
+alert("Senha correta! Acesso liberado.");
+
+
+// Exercício 24: Soma até zero
+let numeroSoma;
+let somaTotal = 0;
+do {
+  numeroSoma = Number(prompt("Digite um número (0 para parar):"));
+  somaTotal += numeroSoma;
+} while (numeroSoma !== 0);
+alert(`A soma dos números digitados foi: ${somaTotal}`);
+
+
+// Exercício 25: Potência manual
+const base = Number(prompt("Digite a base:"));
+const expoente = Number(prompt("Digite o expoente:"));
+let resultadoPotencia = 1;
+for (let i = 0; i < expoente; i++) {
+  resultadoPotencia *= base;
+}
+alert(`${base} elevado a ${expoente} é ${resultadoPotencia}`);
+
+
+// Exercício 26: Sequência de Fibonacci
+const nFibonacci = Number(prompt("Quantos termos da sequência de Fibonacci deseja ver?"));
+let anterior = 0;
+let atual = 1;
+let sequencia = [];
+
+for (let i = 0; i < nFibonacci; i++) {
+  sequencia.push(anterior);
+  const temp = anterior + atual;
+  anterior = atual;
+  atual = temp;
+}
+
+alert(`Sequência de Fibonacci:\n${sequencia.join(", ")}`);
+</script>
+</body>
+</html>
