@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 - Trocar imagem com duplo clique</title>
+</head>
+<body>
+<img id="imagemTroca" src="https://www.zooplus.pt/magazine/wp-content/uploads/2021/03/kitten-sitzt-boden-768x512-1.webp" width="300" alt="Imagem">
+
+<script>
+  const imagemGato = "https://www.zooplus.pt/magazine/wp-content/uploads/2021/03/kitten-sitzt-boden-768x512-1.webp";
+  const imagemCachorro = "https://img.magnific.com/fotos-gratis/fotografia-vertical-de-foco-superficial-de-um-bonito-cachorro-de-golden-retriever-sentado-em-um-chao-de-grama_181624-27259.jpg?semt=ais_hybrid&w=740&q=80";
+
+  const imagem = document.getElementById("imagemTroca");
+  let imagemAlternada = false;
+
+  imagem.addEventListener("dblclick", () => {
+    imagem.src = imagemAlternada ? imagemGato : imagemCachorro;
+    imagemAlternada = !imagemAlternada;
+  });
+</script>
+</body>
+</html>
