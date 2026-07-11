@@ -1,2 +1,0 @@
-# Minhas_Atividades_JavaScript
-Atividades somente JavaScript
