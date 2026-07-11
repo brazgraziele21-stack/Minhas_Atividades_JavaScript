@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 - Clique que muda o texto</title>
+</head>
+<body>
+    <button id="btnMudarTexto">Clique aqui</button>
+<p id="paragrafoTexto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. A consequatur enim autem eius sapiente veritatis repellat in cupiditate repudiandae, numquam ea deserunt aliquid? Ea deserunt rem ipsa temporibus quisquam exercitationem!</p>
+
+<script>
+  const botao1 = document.getElementById("btnMudarTexto");
+  const paragrafo1 = document.getElementById("paragrafoTexto");
+
+  botao1.addEventListener("click", () => {
+    paragrafo1.textContent = "O texto foi alterado!";
+  });
+</script>
+</body>
+</html>
