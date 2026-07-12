@@ -8,25 +8,30 @@
 <body>
 <script>
 // Exercício 9: Maior entre três números
-const n1 = Number(prompt("Digite o primeiro número:"));
-const n2 = Number(prompt("Digite o segundo número:"));
-const n3 = Number(prompt("Digite o terceiro número:"));
+const numero1 = Number(prompt("Digite o primeiro número:"));
+const numero2 = Number(prompt("Digite o segundo número:"));
+const numero3 = Number(prompt("Digite o terceiro número:"));
 
-if (n1 === n2 && n2 === n3) {
+if (numero1 === numero2 && numero2 === numero3) {
   alert("Todos os números são iguais.");
-} else if (n1 >= n2 && n1 >= n3) {
-  alert(`O maior número é ${n1}`);
-} else if (n2 >= n1 && n2 >= n3) {
-  alert(`O maior número é ${n2}`);
+} else if (numero1 >= numero2 && numero1 >= numero3) {
+  alert(`O maior número é ${numero1}`);
+} else if (numero2 >= numero1 && numero2 >= numero3) {
+  alert(`O maior número é ${numero2}`);
 } else {
-  alert(`O maior número é ${n3}`);
+  alert(`O maior número é ${numero3}`);
 }
 
 
 // Exercício 10: Ano bissexto
 const ano = Number(prompt("Digite um ano:"));
 const bissexto = (ano % 4 === 0 && ano % 100 !== 0) || ano % 400 === 0;
-alert(bissexto ? `${ano} é bissexto.` : `${ano} não é bissexto.`);
+
+if (bissexto) {
+  alert(`${ano} é bissexto.`);
+} else {
+  alert(`${ano} não é bissexto.`);
+}
 
 
 // Exercício 11: Classificação por conceito
@@ -77,8 +82,14 @@ if (dia < 1 || dia > 7) {
     default: nomeDia = "Desconhecido";
   }
 
-  const tipo = dia === 1 || dia === 7 ? "Fim de semana" : "Dia útil";
-  alert(`${nomeDia} é um(a) ${tipo}.`);
+  let tipo;
+  if (dia === 1 || dia === 7) {
+    tipo = "Fim de semana";
+  } else {
+    tipo = "Dia útil";
+  }
+
+  alert(`${nomeDia} é um ${tipo}.`);
 }
 
 
@@ -100,7 +111,7 @@ switch (opcao) {
   }
   case 3: {
     const raio = Number(prompt("Digite o raio do círculo:"));
-    area = Math.PI * raio ** 2;
+    area = Math.PI * Math.pow(raio, 2);
     break;
   }
   default:
@@ -117,9 +128,14 @@ if (area !== null) {
 // Exercício 15: Verificação de múltiplos
 const numA = Number(prompt("Digite o primeiro número:"));
 const numB = Number(prompt("Digite o segundo número:"));
-const mensagem = numA % numB === 0
-  ? `${numA} é múltiplo de ${numB}.`
-  : `${numA} não é múltiplo de ${numB}.`;
+let mensagem;
+
+if (numA % numB === 0) {
+  mensagem = `${numA} é múltiplo de ${numB}.`;
+} else {
+  mensagem = `${numA} não é múltiplo de ${numB}.`;
+}
+
 alert(mensagem);
 
 
