@@ -8,97 +8,113 @@
 <body>
 <script>
 // Exercício 27: Inverter ordem
+const totalNumeros = Number(prompt("Quantos números você deseja informar?"));
+const listaOriginal = [];
 
-const n27 = Number(prompt("Quantos números você deseja informar?"));
-const numeros27 = [];
-for (let i = 0; i < n27; i++) {
-  numeros27.push(Number(prompt(`Digite o número ${i + 1}:`)));
+for (let i = 0; i < totalNumeros; i++) {
+  listaOriginal.push(Number(prompt(`Digite o número ${i + 1}:`)));
 }
-const invertido = [...numeros27].reverse();
-alert(`Ordem original: ${numeros27.join(", ")}\nOrdem inversa: ${invertido.join(", ")}`);
+
+const listaInvertida = [...listaOriginal].reverse();
+
+alert(`Ordem original: ${listaOriginal.join(", ")}\nOrdem inversa: ${listaInvertida.join(", ")}`);
 
 
 // Exercício 28: Maior e menor do Array
+const totalNumerosMaiorMenor = Number(prompt("Quantos números você vai digitar?"));
+const listaMaiorMenor = [];
 
-const n28 = Number(prompt("Quantos números você deseja informar?"));
-const numeros28 = [];
-for (let i = 0; i < n28; i++) {
-  numeros28.push(Number(prompt(`Digite o número ${i + 1}:`)));
+for (let i = 0; i < totalNumerosMaiorMenor; i++) {
+  listaMaiorMenor.push(Number(prompt(`Informe o número ${i + 1}:`)));
 }
-const maior = Math.max(...numeros28);
-const menor = Math.min(...numeros28);
+
+const maior = Math.max(...listaMaiorMenor);
+const menor = Math.min(...listaMaiorMenor);
+
 alert(`Maior valor: ${maior}\nMenor valor: ${menor}`);
 
 
 // Exercício 29: Acima da média
+const totalValores = Number(prompt("Quantos valores você deseja calcular?"));
+const listaValores = [];
 
-const n29 = Number(prompt("Quantos valores você deseja informar?"));
-const valores29 = [];
-for (let i = 0; i < n29; i++) {
-  valores29.push(Number(prompt(`Digite o valor ${i + 1}:`)));
+for (let i = 0; i < totalValores; i++) {
+  listaValores.push(Number(prompt(`Qual o valor número ${i + 1}?`)));
 }
-const soma29 = valores29.reduce((acc, valor) => acc + valor, 0);
-const media = soma29 / valores29.length;
-const acimaDaMedia = valores29.filter((valor) => valor > media);
+
+const somaValores = listaValores.reduce((acumulador, valor) => acumulador + valor, 0);
+const media = somaValores / listaValores.length;
+const acimaDaMedia = listaValores.filter((valor) => valor > media);
+
 alert(`Média: ${media.toFixed(2)}\nValores acima da média: ${acimaDaMedia.join(", ")}`);
 
 
 // Exercício 30: Soma nas posições pares
+const totalNumerosPosicao = Number(prompt("Quantos números você vai informar agora?"));
+const listaNumerosPosicao = [];
 
-const n30 = Number(prompt("Quantos números você deseja informar?"));
-const numeros30 = [];
-for (let i = 0; i < n30; i++) {
-  numeros30.push(Number(prompt(`Digite o número ${i + 1}:`)));
+for (let i = 0; i < totalNumerosPosicao; i++) {
+  listaNumerosPosicao.push(Number(prompt(`Valor da posição ${i + 1}:`)));
 }
-const posicoesPares = numeros30.filter((_, index) => index % 2 === 0);
-const somaPosicoesPares = posicoesPares.reduce((acc, valor) => acc + valor, 0);
+
+const posicoesPares = listaNumerosPosicao.filter((valor, index) => index % 2 === 0);
+const somaPosicoesPares = posicoesPares.reduce((acumulador, valor) => acumulador + valor, 0);
+
 alert(`Soma dos elementos em posições pares (0, 2, 4...): ${somaPosicoesPares}`);
 
 
 // Exercício 31: Nome mais longo
+const totalNomes = Number(prompt("Quantos nomes você vai digitar?"));
+const listaNomes = [];
 
-const n31 = Number(prompt("Quantos nomes você deseja informar?"));
-const nomes31 = [];
-for (let i = 0; i < n31; i++) {
-  nomes31.push(prompt(`Digite o nome ${i + 1}:`));
+for (let i = 0; i < totalNomes; i++) {
+  listaNomes.push(prompt(`Nome número ${i + 1}:`));
 }
-const nomeMaisLongo = nomes31.reduce((maior, atual) =>
+
+const nomeMaisLongo = listaNomes.reduce((maior, atual) =>
   atual.length > maior.length ? atual : maior
 );
+
 alert(`O nome mais longo é: ${nomeMaisLongo}`);
 
 
 // Exercício 32: Ordenar valores
+const totalNumerosOrdenar = Number(prompt("Quantos números você vai digitar agora?"));
+const listaNumerosOrdenar = [];
 
-const n32 = Number(prompt("Quantos números você deseja informar?"));
-const numeros32 = [];
-for (let i = 0; i < n32; i++) {
-  numeros32.push(Number(prompt(`Digite o número ${i + 1}:`)));
+for (let i = 0; i < totalNumerosOrdenar; i++) {
+  listaNumerosOrdenar.push(Number(prompt(`Informe o valor ${i + 1}:`)));
 }
-numeros32.sort((a, b) => a - b);
-alert(`Números em ordem crescente: ${numeros32.join(", ")}`);
+
+listaNumerosOrdenar.sort((a, b) => a - b);
+
+alert(`Números em ordem crescente: ${listaNumerosOrdenar.join(", ")}`);
 
 
 // Exercício 33: Contar negativos com filter
+const totalNumerosNegativos = Number(prompt("Quantos números você vai digitar dessa vez?"));
+const listaNumerosNegativos = [];
 
-const n33 = Number(prompt("Quantos números você deseja informar?"));
-const numeros33 = [];
-for (let i = 0; i < n33; i++) {
-  numeros33.push(Number(prompt(`Digite o número ${i + 1}:`)));
+for (let i = 0; i < totalNumerosNegativos; i++) {
+  listaNumerosNegativos.push(Number(prompt(`Valor número ${i + 1}:`)));
 }
-const quantidadeNegativos = numeros33.filter((num) => num < 0).length;
+
+const quantidadeNegativos = listaNumerosNegativos.filter((num) => num < 0).length;
+
 alert(`Quantidade de números negativos: ${quantidadeNegativos}`);
 
 
 // Exercício 34: Filtrar ímpares
+const valorN = Number(prompt("Digite o valor de N (sequência de 1 até N):"));
+const listaSequencia = [];
 
-const n34 = Number(prompt("Digite o valor de N (sequência de 1 até N):"));
-const numeros34 = [];
-for (let i = 1; i <= n34; i++) {
-  numeros34.push(i);
+for (let i = 1; i <= valorN; i++) {
+  listaSequencia.push(i);
 }
-const impares = numeros34.filter((num) => num % 2 !== 0);
-alert(`Sequência completa: ${numeros34.join(", ")}\nApenas ímpares: ${impares.join(", ")}`);
+
+const impares = listaSequencia.filter((num) => num % 2 !== 0);
+
+alert(`Sequência completa: ${listaSequencia.join(", ")}\nApenas ímpares: ${impares.join(", ")}`);
 </script>
 </body>
 </html>
