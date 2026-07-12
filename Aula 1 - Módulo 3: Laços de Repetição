@@ -11,7 +11,7 @@
 const numeroFatorial = Number(prompt("Digite um número para calcular o fatorial:"));
 let fatorial = 1;
 for (let i = numeroFatorial; i > 1; i--) {
-  fatorial *= i;
+  fatorial = fatorial * i;
 }
 alert(`O fatorial de ${numeroFatorial} é ${fatorial}`);
 
@@ -19,7 +19,9 @@ alert(`O fatorial de ${numeroFatorial} é ${fatorial}`);
 // Exercício 18: Soma de pares num intervalo
 let somaPares = 0;
 for (let i = 1; i <= 100; i++) {
-  if (i % 2 === 0) somaPares += i;
+  if (i % 2 === 0) {
+    somaPares = somaPares + i;
+  }
 }
 alert(`A soma dos números pares de 1 a 100 é ${somaPares}`);
 
@@ -31,10 +33,10 @@ let resultadoMultiplos = "";
 
 while (contador < 20) {
   if (numeroMultiplo % 3 === 0) {
-    resultadoMultiplos += numeroMultiplo + " ";
-    contador++;
+    resultadoMultiplos = resultadoMultiplos + numeroMultiplo + " ";
+    contador = contador + 1;
   }
-  numeroMultiplo++;
+  numeroMultiplo = numeroMultiplo + 1;
 }
 
 alert(`Os 20 primeiros múltiplos de 3 são:\n${resultadoMultiplos}`);
@@ -53,26 +55,29 @@ alert("Programa encerrado.");
 
 
 // Exercício 21: Contar positivos e negativos
-const nContagem = Number(prompt("Quantos números você deseja informar?"));
-let qtdPositivos = 0;
-let qtdNegativos = 0;
+const numeroContagem = Number(prompt("Quantos números você deseja informar?"));
+let quantidadePositivos = 0;
+let quantidadeNegativos = 0;
 
-for (let i = 0; i < nContagem; i++) {
+for (let i = 0; i < numeroContagem; i++) {
   const numero = Number(prompt(`Digite o número ${i + 1}:`));
-  if (numero > 0) qtdPositivos++;
-  else if (numero < 0) qtdNegativos++;
+  if (numero > 0) {
+    quantidadePositivos = quantidadePositivos + 1;
+  } else if (numero < 0) {
+    quantidadeNegativos = quantidadeNegativos + 1;
+  }
 }
 
-alert(`Positivos: ${qtdPositivos}\nNegativos: ${qtdNegativos}`);
+alert(`Positivos: ${quantidadePositivos}\nNegativos: ${quantidadeNegativos}`);
 
 
 // Exercício 22: Tabuada completa
 let resultadoTabuada = "";
 for (let i = 1; i <= 10; i++) {
   for (let j = 1; j <= 10; j++) {
-    resultadoTabuada += `${i} x ${j} = ${i * j}\n`;
+    resultadoTabuada = resultadoTabuada + `${i} x ${j} = ${i * j}\n`;
   }
-  resultadoTabuada += "\n";
+  resultadoTabuada = resultadoTabuada + "\n";
 }
 console.log(resultadoTabuada);
 alert("Tabuada gerada! Veja o resultado no console.");
@@ -92,7 +97,7 @@ let numeroSoma;
 let somaTotal = 0;
 do {
   numeroSoma = Number(prompt("Digite um número (0 para parar):"));
-  somaTotal += numeroSoma;
+  somaTotal = somaTotal + numeroSoma;
 } while (numeroSoma !== 0);
 alert(`A soma dos números digitados foi: ${somaTotal}`);
 
@@ -102,18 +107,18 @@ const base = Number(prompt("Digite a base:"));
 const expoente = Number(prompt("Digite o expoente:"));
 let resultadoPotencia = 1;
 for (let i = 0; i < expoente; i++) {
-  resultadoPotencia *= base;
+  resultadoPotencia = resultadoPotencia * base;
 }
 alert(`${base} elevado a ${expoente} é ${resultadoPotencia}`);
 
 
 // Exercício 26: Sequência de Fibonacci
-const nFibonacci = Number(prompt("Quantos termos da sequência de Fibonacci deseja ver?"));
+const numeroFibonacci = Number(prompt("Quantos termos da sequência de Fibonacci deseja ver?"));
 let anterior = 0;
 let atual = 1;
 let sequencia = [];
 
-for (let i = 0; i < nFibonacci; i++) {
+for (let i = 0; i < numeroFibonacci; i++) {
   sequencia.push(anterior);
   const temp = anterior + atual;
   anterior = atual;
