@@ -8,18 +8,16 @@
 <body>
 <script>
 // Exercício 35: Função Fatorial Recursiva
-
 function fatorialRecursivo(n) {
   if (n <= 1) return 1;
   return n * fatorialRecursivo(n - 1);
 }
 
-const numero35 = Number(prompt("Digite um número para calcular o fatorial:"));
-alert(`O fatorial de ${numero35} é ${fatorialRecursivo(numero35)}`);
+const numeroFatorial = Number(prompt("Digite um número para calcular o fatorial:"));
+alert(`O fatorial de ${numeroFatorial} é ${fatorialRecursivo(numeroFatorial)}`);
 
 
 // Exercício 36: MDC (Algoritmo de Euclides)
-
 function calcularMDC(a, b) {
   while (b !== 0) {
     const resto = a % b;
@@ -29,14 +27,13 @@ function calcularMDC(a, b) {
   return a;
 }
 
-const a36 = Number(prompt("Digite o primeiro número:"));
-const b36 = Number(prompt("Digite o segundo número:"));
-alert(`O MDC entre ${a36} e ${b36} é ${calcularMDC(a36, b36)}`);
+const primeiroNumero = Number(prompt("Digite o primeiro número:"));
+const segundoNumero = Number(prompt("Digite o segundo número:"));
+alert(`O MDC entre ${primeiroNumero} e ${segundoNumero} é ${calcularMDC(primeiroNumero, segundoNumero)}`);
 
 
 // Exercício 37: Validação de Primo
-
-function ehPrimo(n) {
+function primo(n) {
   if (n < 2) return false;
   for (let i = 2; i < n; i++) {
     if (n % i === 0) return false;
@@ -44,16 +41,27 @@ function ehPrimo(n) {
   return true;
 }
 
-const numero37 = Number(prompt("Digite um número inteiro:"));
-alert(`${numero37} é primo? ${ehPrimo(numero37) ? "Sim" : "Não"}`);
+const numeroPrimo = Number(prompt("Digite um número inteiro:"));
+
+if (primo(numeroPrimo)) {
+  alert(`${numeroPrimo} é primo? Sim`);
+} else {
+  alert(`${numeroPrimo} é primo? Não`);
+}
 
 
 // Exercício 38: Calculadora com Arrow Functions
-
 const soma = (a, b) => a + b;
 const subtracao = (a, b) => a - b;
 const multiplicacao = (a, b) => a * b;
-const divisao = (a, b) => (b !== 0 ? a / b : "Erro: divisão por zero");
+
+function divisao(a, b) {
+  if (b !== 0) {
+    return a / b;
+  } else {
+    return "Erro: divisão por zero";
+  }
+}
 
 function calculadora(a, b, operacao) {
   let resultado;
@@ -67,31 +75,30 @@ function calculadora(a, b, operacao) {
   return resultado;
 }
 
-const a38 = Number(prompt("Digite o primeiro número:"));
-const b38 = Number(prompt("Digite o segundo número:"));
-const operacao38 = prompt("Digite a operação (soma, subtracao, multiplicacao, divisao):");
-alert(`Resultado: ${calculadora(a38, b38, operacao38)}`);
+const primeiroValor = Number(prompt("Digite o primeiro número:"));
+const segundoValor = Number(prompt("Digite o segundo número:"));
+const tipoOperacao = prompt("Digite a operação (soma, subtracao, multiplicacao, divisao):");
+alert(`Resultado: ${calculadora(primeiroValor, segundoValor, tipoOperacao)}`);
 
 
 // Exercício 39: Conversão de temperatura Bidirecional
-
 function cParaF(c) { return (c * 9) / 5 + 32; }
 function fParaC(f) { return ((f - 32) * 5) / 9; }
 
-const opcao39 = prompt("Qual conversão deseja fazer?\n1 - Celsius para Fahrenheit\n2 - Fahrenheit para Celsius");
-if (opcao39 === "1") {
-  const c39 = Number(prompt("Digite a temperatura em °C:"));
-  alert(`${c39}°C equivalem a ${cParaF(c39).toFixed(1)}°F`);
-} else if (opcao39 === "2") {
-  const f39 = Number(prompt("Digite a temperatura em °F:"));
-  alert(`${f39}°F equivalem a ${fParaC(f39).toFixed(1)}°C`);
+const tipoConversao = prompt("Qual conversão deseja fazer?\n1 - Celsius para Fahrenheit\n2 - Fahrenheit para Celsius");
+
+if (tipoConversao === "1") {
+  const celsius = Number(prompt("Digite a temperatura em °C:"));
+  alert(`${celsius}°C equivalem a ${cParaF(celsius).toFixed(1)}°F`);
+} else if (tipoConversao === "2") {
+  const fahrenheit = Number(prompt("Digite a temperatura em °F:"));
+  alert(`${fahrenheit}°F equivalem a ${fParaC(fahrenheit).toFixed(1)}°C`);
 } else {
   alert("Opção inválida.");
 }
 
 
 // Exercício 40: Dia da semana em Array
-
 const dias = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
 
 function obterDiaDaSemana(n) {
@@ -99,8 +106,8 @@ function obterDiaDaSemana(n) {
   return dias[n - 1];
 }
 
-const numero40 = Number(prompt("Digite um número de 1 a 7:"));
-alert(`O dia correspondente é: ${obterDiaDaSemana(numero40)}`);
+const numeroDia = Number(prompt("Digite um número de 1 a 7:"));
+alert(`O dia correspondente é: ${obterDiaDaSemana(numeroDia)}`);
 </script>
 </body>
 </html>
