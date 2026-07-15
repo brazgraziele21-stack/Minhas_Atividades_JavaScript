@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 3 - Exercício 2</title>
+  </head>
+  <body>
+    <ul id="lista"></ul>
+
+    <button id="btn-fim">Adicionar no fim</button>
+
+    <button id="btn-topo">Adicionar no topo</button>
+
+    <script>
+      const lista = document.getElementById("lista");
+      const btnFim = document.getElementById("btn-fim");
+      const btnTopo = document.getElementById("btn-topo");
+
+      function criarNovoItem() {
+        const li = document.createElement("li");
+        li.textContent = "Item novo ";
+
+        const btnRemover = document.createElement("button");
+        btnRemover.textContent = "remover";
+
+        btnRemover.addEventListener("click", function () {
+          li.remove();
+        });
+
+        li.appendChild(btnRemover);
+
+        return li;
+      }
+
+      btnFim.addEventListener("click", function () {
+        const novoItem = criarNovoItem();
+        lista.appendChild(novoItem);
+      });
+
+      btnTopo.addEventListener("click", function () {
+        const novoItem = criarNovoItem();
+
+        const primeiroFilho = lista.firstChild;
+
+        lista.insertBefore(novoItem, primeiroFilho);
+      });
+    </script>
+  </body>
+</html>
