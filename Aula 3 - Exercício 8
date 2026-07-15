@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 3 - Exercício 8</title>
+  </head>
+  <body>
+    <div id="destaque">
+      <p>Conteúdo inicial</p>
+    </div>
+
+    <button id="trocar">Trocar destaque</button>
+
+    <script>
+      const containerDestaque = document.getElementById("destaque");
+      const btnTrocar = document.getElementById("trocar");
+
+      btnTrocar.addEventListener("click", () => {
+        const novaDiv = document.createElement("div");
+        novaDiv.id = "destaque";
+
+        const novoParagrafo = document.createElement("p");
+        novoParagrafo.textContent = "Este é o novo conteúdo do destaque!";
+        novaDiv.appendChild(novoParagrafo);
+
+        if (containerDestaque.parentNode) {
+          containerDestaque.parentNode.replaceChild(novaDiv, containerDestaque);
+        }
+      });
+    </script>
+  </body>
+</html>
