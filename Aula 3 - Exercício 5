@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 3 - Exercício 5</title>
+  </head>
+  <body>
+    <ul id="lista"></ul>
+
+    <input id="texto" placeholder="Texto do item" />
+
+    <input id="indice" type="number" placeholder="Posição" />
+
+    <button id="btn-inserir">Inserir</button>
+    <script>
+      const lista = document.getElementById("lista");
+      const inputTexto = document.getElementById("texto");
+      const inputIndice = document.getElementById("indice");
+      const btnInserir = document.getElementById("btn-inserir");
+
+      btnInserir.addEventListener("click", () => {
+        const li = document.createElement("li");
+        li.textContent = inputTexto.value;
+
+        const index = parseInt(inputIndice.value);
+        const items = lista.children;
+
+        if (index >= 0 && index < items.length) {
+          lista.insertBefore(li, items[index]);
+        } else {
+          lista.appendChild(li);
+        }
+      });
+    </script>
+  </body>
+</html>
