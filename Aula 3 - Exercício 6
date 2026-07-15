@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 3 - Exercício 6</title>
+  </head>
+  <body>
+    <div id="quiz"></div>
+
+    <button id="destacar">Destacar primeira</button>
+
+    <script>
+      const quizDiv = document.getElementById("quiz");
+      const btnDestacar = document.getElementById("destacar");
+      const alternativas = ["A", "B", "C"];
+      let selecionado = null;
+
+      alternativas.forEach((alternativa) => {
+        const btn = document.createElement("button");
+        btn.textContent = alternativa;
+
+        btn.addEventListener("click", () => {
+          selecionado = btn;
+        });
+
+        quizDiv.appendChild(btn);
+      });
+
+      btnDestacar.addEventListener("click", () => {
+        if (selecionado) {
+          quizDiv.insertBefore(selecionado, quizDiv.firstChild);
+        }
+      });
+    </script>
+  </body>
+</html>
