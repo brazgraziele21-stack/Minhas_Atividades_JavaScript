@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 3 - Exercício 4</title>
+  </head>
+  <body>
+    <p id="contador">0</p>
+
+    <button id="btn-mais">+1</button>
+
+    <button id="btn-reset">Reiniciar</button>
+
+    <script>
+      const pContador = document.getElementById("contador");
+      const btnMais = document.getElementById("btn-mais");
+      const btnReset = document.getElementById("btn-reset");
+
+      btnMais.addEventListener("click", () => {
+        let valorAtual = parseInt(pContador.textContent);
+        pContador.textContent = valorAtual + 1;
+      });
+
+      btnReset.addEventListener("click", () => {
+        const novoParagrafo = document.createElement("p");
+        novoParagrafo.textContent = "0";
+        novoParagrafo.id = "contador";
+        pContador.parentNode.replaceChild(novoParagrafo, pContador);
+      });
+    </script>
+  </body>
+</html>
