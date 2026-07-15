@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 3 - Exercício 3</title>
+  </head>
+  <body>
+    <div id="galeria"></div>
+
+    <button id="btn-remover-ultimo">Remover último</button>
+
+    <script>
+      const galeria = document.getElementById("galeria");
+      const btnRemover = document.getElementById("btn-remover-ultimo");
+      const urlsImagens = [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs10kZjZGKbWybcjgZCIst08eE6rlx8_QFUftn3J79ZqyHpQOMQwQjVgg&s=10",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbRbQjpnT6jPjHQmPVhpIKyyj0PyXPjq71Ebif46fbPAqNeSV8kqc8cis&s=10",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyiEn9nYV5OKGgnuVTWpFM5SCZywZvCIrLhdEQJ2X8zp57jI1yDvCTcFcX&s=10",
+      ];
+
+      urlsImagens.forEach((url) => {
+        const img = document.createElement("img");
+        img.setAttribute("src", url);
+        galeria.appendChild(img);
+      });
+
+      btnRemover.addEventListener("click", () => {
+        if (galeria.lastElementChild) {
+          galeria.lastElementChild.remove();
+        }
+      });
+    </script>
+  </body>
+</html>
