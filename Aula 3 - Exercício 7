@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 3 - Exercício 7</title>
+  </head>
+  <body>
+    <ul id="lista"></ul>
+
+    <input id="texto" placeholder="Nova tarefa" />
+
+    <button id="add">Adicionar</button>
+
+    <script>
+      const listaTarefas = document.getElementById("lista");
+      const inputTarefa = document.getElementById("texto");
+      const btnAdd = document.getElementById("add");
+
+      btnAdd.addEventListener("click", () => {
+        if (!inputTarefa.value.trim()) return;
+
+        const li = document.createElement("li");
+        li.textContent = inputTarefa.value;
+
+        const btnRemover = document.createElement("button");
+        btnRemover.textContent = "remover";
+        btnRemover.addEventListener("click", () => {
+          li.remove();
+        });
+
+        const btnCima = document.createElement("button");
+        btnCima.textContent = "↑";
+        btnCima.addEventListener("click", () => {
+          if (li.previousElementSibling) {
+            listaTarefas.insertBefore(li, li.previousElementSibling);
+          }
+        });
+
+        li.appendChild(btnRemover);
+        li.appendChild(btnCima);
+        listaTarefas.appendChild(li);
+        inputTarefa.value = "";
+      });
+    </script>
+  </body>
+</html>
