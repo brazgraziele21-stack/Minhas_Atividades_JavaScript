@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 3 - Exercício 1</title>
+  </head>
+  <body>
+    <section id="hero">
+      <h2>Subtítulo da seção</h2>
+    </section>
+    <script>
+      const novoParagrafo = document.createElement("p");
+      novoParagrafo.textContent = "Bem-vindo ao site!";
+
+      const heroSection = document.querySelector("#hero");
+
+      const h2 = heroSection.querySelector("h2");
+
+      heroSection.insertBefore(novoParagrafo, h2);
+    </script>
+  </body>
+</html>
