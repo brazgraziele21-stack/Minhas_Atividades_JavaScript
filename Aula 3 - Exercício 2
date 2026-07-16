@@ -13,38 +13,37 @@
     <button id="btn-topo">Adicionar no topo</button>
 
     <script>
-      const lista = document.getElementById("lista");
-      const btnFim = document.getElementById("btn-fim");
-      const btnTopo = document.getElementById("btn-topo");
+      const lista = document.querySelector("#lista");
+const btnFim = document.querySelector("#btn-fim");
+const btnTopo = document.querySelector("#btn-topo");
 
-      function criarNovoItem() {
-        const li = document.createElement("li");
-        li.textContent = "Item novo ";
+btnFim.addEventListener("click", function () {
+  const li = document.createElement("li");
+  li.textContent = "Item novo (fim) ";
 
-        const btnRemover = document.createElement("button");
-        btnRemover.textContent = "remover";
+  const botaoRemover = document.createElement("button");
+  botaoRemover.textContent = "remover";
+  botaoRemover.addEventListener("click", function () {
+    li.remove();
+  });
 
-        btnRemover.addEventListener("click", function () {
-          li.remove();
-        });
+  li.appendChild(botaoRemover);
+  lista.appendChild(li);
+});
 
-        li.appendChild(btnRemover);
+btnTopo.addEventListener("click", function () {
+  const li = document.createElement("li");
+  li.textContent = "Item novo (topo) ";
 
-        return li;
-      }
+  const botaoRemover = document.createElement("button");
+  botaoRemover.textContent = "remover";
+  botaoRemover.addEventListener("click", function () {
+    li.remove();
+  });
 
-      btnFim.addEventListener("click", function () {
-        const novoItem = criarNovoItem();
-        lista.appendChild(novoItem);
-      });
-
-      btnTopo.addEventListener("click", function () {
-        const novoItem = criarNovoItem();
-
-        const primeiroFilho = lista.firstChild;
-
-        lista.insertBefore(novoItem, primeiroFilho);
-      });
+  li.appendChild(botaoRemover);
+  lista.insertBefore(li, lista.firstChild);
+});
     </script>
   </body>
 </html>
