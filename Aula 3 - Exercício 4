@@ -13,21 +13,27 @@
     <button id="btn-reset">Reiniciar</button>
 
     <script>
-      const pContador = document.getElementById("contador");
-      const btnMais = document.getElementById("btn-mais");
-      const btnReset = document.getElementById("btn-reset");
+      let contador = document.querySelector("#contador");
+const btnMais = document.querySelector("#btn-mais");
+const btnReset = document.querySelector("#btn-reset");
 
-      btnMais.addEventListener("click", () => {
-        let valorAtual = parseInt(pContador.textContent);
-        pContador.textContent = valorAtual + 1;
-      });
+let valor = 0;
 
-      btnReset.addEventListener("click", () => {
-        const novoParagrafo = document.createElement("p");
-        novoParagrafo.textContent = "0";
-        novoParagrafo.id = "contador";
-        pContador.parentNode.replaceChild(novoParagrafo, pContador);
-      });
+btnMais.addEventListener("click", function () {
+  valor = valor + 1;
+  contador.textContent = valor;
+});
+
+btnReset.addEventListener("click", function () {
+  const novoContador = document.createElement("p");
+  novoContador.id = "contador";
+  novoContador.textContent = "0";
+
+  contador.parentNode.replaceChild(novoContador, contador);
+
+  contador = novoContador;
+  valor = 0;
+});
     </script>
   </body>
 </html>
