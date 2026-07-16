@@ -11,27 +11,29 @@
     <button id="destacar">Destacar primeira</button>
 
     <script>
-      const quizDiv = document.getElementById("quiz");
-      const btnDestacar = document.getElementById("destacar");
-      const alternativas = ["A", "B", "C"];
-      let selecionado = null;
+      const quiz = document.querySelector("#quiz");
+const btnDestacar = document.querySelector("#destacar");
 
-      alternativas.forEach((alternativa) => {
-        const btn = document.createElement("button");
-        btn.textContent = alternativa;
+const alternativas = ["A", "B", "C"];
 
-        btn.addEventListener("click", () => {
-          selecionado = btn;
-        });
+for (let i = 0; i < alternativas.length; i++) {
+  const botao = document.createElement("button");
+  botao.textContent = alternativas[i];
 
-        quizDiv.appendChild(btn);
-      });
+  botao.addEventListener("click", function () {
+    botao.classList.toggle("selecionada");
+  });
 
-      btnDestacar.addEventListener("click", () => {
-        if (selecionado) {
-          quizDiv.insertBefore(selecionado, quizDiv.firstChild);
-        }
-      });
+  quiz.appendChild(botao);
+}
+
+btnDestacar.addEventListener("click", function () {
+  const selecionada = quiz.querySelector(".selecionada");
+
+  if (selecionada) {
+    quiz.insertBefore(selecionada, quiz.firstChild);
+  }
+});
     </script>
   </body>
 </html>
