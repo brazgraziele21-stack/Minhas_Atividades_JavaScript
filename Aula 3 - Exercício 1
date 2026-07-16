@@ -10,14 +10,13 @@
       <h2>Subtítulo da seção</h2>
     </section>
     <script>
-      const novoParagrafo = document.createElement("p");
-      novoParagrafo.textContent = "Bem-vindo ao site!";
+      const paragrafo = document.createElement("p");
+paragrafo.textContent = "Bem-vindo ao site!";
 
-      const heroSection = document.querySelector("#hero");
+const hero = document.querySelector("#hero");
+const titulo = document.querySelector("h2");
 
-      const h2 = heroSection.querySelector("h2");
-
-      heroSection.insertBefore(novoParagrafo, h2);
+hero.insertBefore(paragrafo, titulo);
     </script>
   </body>
 </html>
