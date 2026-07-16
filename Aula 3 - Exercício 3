@@ -11,25 +11,24 @@
     <button id="btn-remover-ultimo">Remover último</button>
 
     <script>
-      const galeria = document.getElementById("galeria");
-      const btnRemover = document.getElementById("btn-remover-ultimo");
-      const urlsImagens = [
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs10kZjZGKbWybcjgZCIst08eE6rlx8_QFUftn3J79ZqyHpQOMQwQjVgg&s=10",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbRbQjpnT6jPjHQmPVhpIKyyj0PyXPjq71Ebif46fbPAqNeSV8kqc8cis&s=10",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyiEn9nYV5OKGgnuVTWpFM5SCZywZvCIrLhdEQJ2X8zp57jI1yDvCTcFcX&s=10",
-      ];
+      const galeria = document.querySelector("#galeria");
+const btnRemoverUltimo = document.querySelector("#btn-remover-ultimo");
 
-      urlsImagens.forEach((url) => {
-        const img = document.createElement("img");
-        img.setAttribute("src", url);
-        galeria.appendChild(img);
-      });
+const imagens = [
+  "https://via.placeholder.com/150",
+  "https://via.placeholder.com/150",
+  "https://via.placeholder.com/150"
+];
 
-      btnRemover.addEventListener("click", () => {
-        if (galeria.lastElementChild) {
-          galeria.lastElementChild.remove();
-        }
-      });
+for (let i = 0; i < imagens.length; i++) {
+  const img = document.createElement("img");
+  img.setAttribute("src", imagens[i]);
+  galeria.appendChild(img);
+}
+
+btnRemoverUltimo.addEventListener("click", function () {
+  galeria.lastElementChild.remove();
+});
     </script>
   </body>
 </html>
