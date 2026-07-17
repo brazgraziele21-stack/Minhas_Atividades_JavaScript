@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aula 5 - Exercício 2</title>
+  </head>
+  <body>
+    <button id="btn-salvar">Salvar Usuários</button>
+    <button id="btn-carregar">Carregar Usuários</button>
+
+    <pre id="saida"></pre>
+
+    <script>
+      const btnSalvar = document.querySelector("#btn-salvar");
+      const btnCarregar = document.querySelector("#btn-carregar");
+      const saida = document.querySelector("#saida");
+
+      btnSalvar.addEventListener("click", function () {
+        const usuarios = [
+          {
+            nome: "David",
+            idade: 25,
+            habilidades: ["HTML", "CSS", "JavaScript"],
+            ativo: true
+          },
+          {
+            nome: "Grazi",
+            idade: 19,
+            habilidades: ["Java", "PHP", "Python"],
+            ativo: true
+          },
+          {
+            nome: "Matheus",
+            idade: 31,
+            habilidades: ["C#", "MySQL", "SQL Server"],
+            ativo: false
+          }
+        ];
+
+        const usuariosTexto = JSON.stringify(usuarios);
+        localStorage.setItem("usuarios", usuariosTexto);
+
+        saida.textContent = "Salvo com sucesso.";
+      });
+
+      btnCarregar.addEventListener("click", function () {
+        const usuariosSalvos = localStorage.getItem("usuarios");
+
+        if (usuariosSalvos === null) {
+          saida.textContent = "Nada salvo ainda.";
+        } else {
+          const dados = JSON.parse(usuariosSalvos);
+          saida.textContent = JSON.stringify(dados, null, 2);
+        }
+      });
+    </script>
+  </body>
+</html>
