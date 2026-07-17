@@ -1,0 +1,43 @@
+[
+  {
+    "nome": "David",
+    "idade": 25,
+    "habilidades": ["HTML", "CSS", "JavaScript"],
+    "ativo": true
+  },
+  {
+    "nome": "Grazi",
+    "idade": 19,
+    "habilidades": ["Java", "PHP", "Python"],
+    "ativo": true
+  },
+  {
+    "nome": "Matheus",
+    "idade": 31,
+    "habilidades": ["C#", "MySQL", "SQL Server"],
+    "ativo": false
+  }
+]
+
+
+
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aula 5 - Exercício 1</title>
+  </head>
+  <body>
+    <p>Abra o console (F12) para ver os dados dos usuários.</p>
+
+    <script>
+      fetch("dados.json")
+        .then(function (resposta) {
+          return resposta.json();
+        })
+        .then(function (usuarios) {
+          console.log(usuarios);
+        });
+    </script>
+  </body>
+</html>
