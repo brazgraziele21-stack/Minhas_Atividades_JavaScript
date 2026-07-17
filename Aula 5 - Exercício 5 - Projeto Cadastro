@@ -51,6 +51,7 @@
 </html>
 
 
+
 // script.js
 
 const formCadastro = document.querySelector("#form-cadastro");
@@ -72,7 +73,7 @@ formCadastro.addEventListener("submit", function (evento) {
     senha: senha,
     telefone: telefone,
     nascimento: nascimento,
-    profissao: profissao
+    profissao: profissao,
   };
 
   const dadosSalvos = localStorage.getItem("usuarios");
@@ -91,9 +92,9 @@ formCadastro.addEventListener("submit", function (evento) {
 });
 
 
+
 // index2.html
 
-<!doctype html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
@@ -110,10 +111,10 @@ formCadastro.addEventListener("submit", function (evento) {
 </html>
 
 
+
 // script2.js
 
 const listaUsuariosDiv = document.querySelector("#lista-usuarios");
-
 const dadosSalvos = localStorage.getItem("usuarios");
 
 if (dadosSalvos === null) {
@@ -151,6 +152,7 @@ if (dadosSalvos === null) {
     listaUsuariosDiv.appendChild(card);
   }
 }
+
 
 
 // style.css
