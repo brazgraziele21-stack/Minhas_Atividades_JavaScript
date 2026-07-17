@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aula 4 - Exercício 5</title>
+    <style>
+      li {
+        list-style: none;
+        padding: 8px;
+        margin: 4px 0;
+        cursor: pointer;
+      }
+
+      .urgente {
+        border: 2px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="lista-tarefas">
+      <li>Estudar JavaScript</li>
+      <li>Terminar o portfólio</li>
+      <li>Revisar exercícios</li>
+      <li>Descansar um pouco</li>
+    </ul>
+
+    <script>
+      const itens = document.querySelectorAll("#lista-tarefas li");
+
+      for (let i = 0; i < itens.length; i++) {
+        const item = itens[i];
+
+        item.addEventListener("click", function () {
+          item.classList.toggle("urgente");
+        });
+      }
+    </script>
+  </body>
+</html>
