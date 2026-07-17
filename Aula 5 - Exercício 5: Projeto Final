@@ -1,0 +1,196 @@
+// index.html
+
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cadastro de Usuários</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Cadastro de Cliente</h1>
+
+    <form id="form-cadastro">
+      <div class="campo">
+        <label>Nome:</label>
+        <input type="text" id="nome" required />
+      </div>
+
+      <div class="campo">
+        <label>E-mail:</label>
+        <input type="email" id="email" required />
+      </div>
+
+      <div class="campo">
+        <label>Senha:</label>
+        <input type="password" id="senha" required />
+      </div>
+
+      <div class="campo">
+        <label>Telefone:</label>
+        <input type="text" id="telefone" required />
+      </div>
+
+      <div class="campo">
+        <label>Data de Nascimento:</label>
+        <input type="date" id="nascimento" />
+      </div>
+
+      <div class="campo">
+        <label>Profissão:</label>
+        <input type="text" id="profissao" />
+      </div>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+
+    <p id="mensagem"></p>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+// script.js
+
+const formCadastro = document.querySelector("#form-cadastro");
+const mensagem = document.querySelector("#mensagem");
+
+formCadastro.addEventListener("submit", function (evento) {
+  evento.preventDefault();
+
+  const nome = document.querySelector("#nome").value;
+  const email = document.querySelector("#email").value;
+  const senha = document.querySelector("#senha").value;
+  const telefone = document.querySelector("#telefone").value;
+  const nascimento = document.querySelector("#nascimento").value;
+  const profissao = document.querySelector("#profissao").value;
+
+  const novoUsuario = {
+    nome: nome,
+    email: email,
+    senha: senha,
+    telefone: telefone,
+    nascimento: nascimento,
+    profissao: profissao
+  };
+
+  const dadosSalvos = localStorage.getItem("usuarios");
+  let listaUsuarios = [];
+
+  if (dadosSalvos !== null) {
+    listaUsuarios = JSON.parse(dadosSalvos);
+  }
+
+  listaUsuarios.push(novoUsuario);
+
+  localStorage.setItem("usuarios", JSON.stringify(listaUsuarios));
+
+  mensagem.textContent = "Usuário cadastrado com sucesso!";
+  formCadastro.reset();
+});
+
+
+// index2.html
+
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Painel de Usuários</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Usuários Cadastrados</h1>
+
+    <div id="lista-usuarios"></div>
+
+    <script src="script2.js"></script>
+  </body>
+</html>
+
+
+// script2.js
+
+const listaUsuariosDiv = document.querySelector("#lista-usuarios");
+
+const dadosSalvos = localStorage.getItem("usuarios");
+
+if (dadosSalvos === null) {
+  listaUsuariosDiv.textContent = "Nenhum usuário cadastrado ainda.";
+} else {
+  const usuarios = JSON.parse(dadosSalvos);
+
+  for (let i = 0; i < usuarios.length; i++) {
+    const usuario = usuarios[i];
+
+    const card = document.createElement("div");
+    card.classList.add("card-usuario");
+
+    const nomeElemento = document.createElement("p");
+    nomeElemento.textContent = "Nome: " + usuario.nome;
+
+    const emailElemento = document.createElement("p");
+    emailElemento.textContent = "E-mail: " + usuario.email;
+
+    const telefoneElemento = document.createElement("p");
+    telefoneElemento.textContent = "Telefone: " + usuario.telefone;
+
+    const nascimentoElemento = document.createElement("p");
+    nascimentoElemento.textContent = "Nascimento: " + usuario.nascimento;
+
+    const profissaoElemento = document.createElement("p");
+    profissaoElemento.textContent = "Profissão: " + usuario.profissao;
+
+    card.appendChild(nomeElemento);
+    card.appendChild(emailElemento);
+    card.appendChild(telefoneElemento);
+    card.appendChild(nascimentoElemento);
+    card.appendChild(profissaoElemento);
+
+    listaUsuariosDiv.appendChild(card);
+  }
+}
+
+
+// style.css
+
+body {
+  font-family: Arial, sans-serif;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo {
+  display: block;
+  margin-top: 10px;
+}
+
+.campo label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.campo input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.card-usuario {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
