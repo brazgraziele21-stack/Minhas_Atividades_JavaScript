@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aula 5 - Exercício 3</title>
+  </head>
+  <body>
+    <p>Abra o console (F12) para ver o resultado.</p>
+
+    <script>
+      const usuario = {
+        nome: "Grazi",
+        idade: 19,
+        habilidades: ["Java", "PHP", "Python"],
+        ativo: true
+      };
+
+      const usuarioTexto = JSON.stringify(usuario);
+      console.log(usuarioTexto);
+
+      const usuarioObjeto = JSON.parse(usuarioTexto);
+
+      console.log(usuarioObjeto.nome);
+      console.log(usuarioObjeto.idade);
+      console.log(usuarioObjeto.habilidades);
+      console.log(usuarioObjeto.ativo);
+    </script>
+  </body>
+</html>
