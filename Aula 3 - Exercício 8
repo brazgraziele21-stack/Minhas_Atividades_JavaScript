@@ -13,21 +13,22 @@
     <button id="trocar">Trocar destaque</button>
 
     <script>
-      const containerDestaque = document.getElementById("destaque");
-      const btnTrocar = document.getElementById("trocar");
+      let destaque = document.querySelector("#destaque");
+const btnTrocar = document.querySelector("#trocar");
 
-      btnTrocar.addEventListener("click", () => {
-        const novaDiv = document.createElement("div");
-        novaDiv.id = "destaque";
+btnTrocar.addEventListener("click", function () {
+  const novoDestaque = document.createElement("div");
+  novoDestaque.id = "destaque";
 
-        const novoParagrafo = document.createElement("p");
-        novoParagrafo.textContent = "Este é o novo conteúdo do destaque!";
-        novaDiv.appendChild(novoParagrafo);
+  const paragrafo = document.createElement("p");
+  paragrafo.textContent = "Novo conteúdo em destaque!";
 
-        if (containerDestaque.parentNode) {
-          containerDestaque.parentNode.replaceChild(novaDiv, containerDestaque);
-        }
-      });
+  novoDestaque.appendChild(paragrafo);
+
+  destaque.parentNode.replaceChild(novoDestaque, destaque);
+
+  destaque = novoDestaque;
+});
     </script>
   </body>
 </html>
