@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grazi — Desenvolvedora em formação</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="topo">
+    <div class="container topo-conteudo">
+      <span class="logo">grazi<span class="ponto">.</span>dev</span>
+      <nav class="nav">
+        <a href="#sobre">Sobre</a>
+        <a href="#trajetoria">Trajetória</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero container" id="sobre">
+      <div class="hero-foto">
+        <!-- TROCAR: quando tiver a foto, troca essa div por <img src="sua-foto.jpg" alt="Foto de Grazi" /> -->
+        <div class="foto-placeholder" aria-hidden="true">GR</div>
+      </div>
+      <div class="hero-texto">
+        <p class="eyebrow">Desenvolvedora em formação</p>
+        <h1>Aprendendo a construir, uma linha de código de cada vez.</h1>
+        <p class="bio">
+          Sou a Grazi, tenho 19 anos e estou trilhando meu caminho para me tornar desenvolvedora full-stack.
+          Comecei do zero, sem nenhuma experiência prévia, estudando Portugol — e hoje já passo por HTML,
+          CSS, JavaScript, PHP e banco de dados. Trabalho como jovem aprendiz na Millpar, em Guarapuava (PR),
+          enquanto me formo pelo Instituto 3C+ e me preparo para cursar Tecnologia em Sistemas para Internet
+          na UTFPR.
+        </p>
+        <div class="hero-cta">
+          <a href="#projetos" class="botao botao-principal">Ver projetos</a>
+          <a href="#contato" class="botao botao-secundario">Entrar em contato</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills container">
+      <h2>Skills &amp; ferramentas</h2>
+      <ul class="tags">
+        <li>Portugol</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>PHP</li>
+        <li>MySQL</li>
+        <li>Git &amp; GitHub</li>
+      </ul>
+    </section>
+
+    <section class="trajetoria container" id="trajetoria">
+      <h2>Log de evolução</h2>
+      <p class="secao-legenda">Meu progresso até aqui, registrado como se fosse um histórico de commits.</p>
+      <ol class="commit-log">
+        <li class="commit">
+          <span class="commit-hash">a1f9c2e</span>
+          <span class="commit-msg">feat: primeiros passos em Portugol</span>
+          <span class="commit-data">início dos estudos</span>
+        </li>
+        <li class="commit">
+          <span class="commit-hash">b3d81af</span>
+          <span class="commit-msg">feat: estrutura de páginas com HTML e CSS</span>
+          <span class="commit-data">Instituto 3C+</span>
+        </li>
+        <li class="commit">
+          <span class="commit-hash">c7e402b</span>
+          <span class="commit-msg">feat: lógica e interatividade com JavaScript (DOM)</span>
+          <span class="commit-data">Instituto 3C+</span>
+        </li>
+        <li class="commit">
+          <span class="commit-hash">d94a110</span>
+          <span class="commit-msg">feat: back-end com PHP e MySQL (CRUD completo)</span>
+          <span class="commit-data">Instituto 3C+</span>
+        </li>
+        <li class="commit commit-atual">
+          <span class="commit-hash">HEAD</span>
+          <span class="commit-msg">in progress: rumo ao full-stack júnior</span>
+          <span class="commit-data">agora</span>
+        </li>
+      </ol>
+    </section>
+
+    <section class="projetos container" id="projetos">
+      <h2>Projetos</h2>
+      <div class="grid-projetos">
+        <article class="card-projeto">
+          <span class="card-tag">PHP · MySQL</span>
+          <h3>Catálogo de Livros</h3>
+          <p>Sistema CRUD completo para cadastro, listagem, edição e exclusão de livros, com banco de dados MySQL e conexão em PHP.</p>
+          <!-- TROCAR: coloque o link real do seu repositório -->
+          <a href="#" class="card-link">Ver no GitHub →</a>
+        </article>
+        <article class="card-projeto">
+          <span class="card-tag">HTML · CSS Grid</span>
+          <h3>Spotify Clone</h3>
+          <p>Interface inspirada no Spotify, construída inteiramente com CSS Grid, com layout responsivo e ícones customizados.</p>
+          <!-- TROCAR: coloque o link real do seu repositório -->
+          <a href="#" class="card-link">Ver no GitHub →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="prova-social container">
+      <div class="metricas">
+        <div class="metrica">
+          <span class="numero">5+</span>
+          <span class="rotulo">linguagens estudadas</span>
+        </div>
+        <div class="metrica">
+          <span class="numero">6</span>
+          <span class="rotulo">meses de estudo intensivo</span>
+        </div>
+        <div class="metrica">
+          <span class="numero">1</span>
+          <span class="rotulo">projeto full-stack entregue</span>
+        </div>
+      </div>
+      <blockquote class="depoimento">
+        <!-- TROCAR: se tiver um depoimento real de mentor, colega ou professor, coloca aqui -->
+        "Espaço reservado para um depoimento de mentor, professor ou colega de curso."
+        — nome, cargo
+      </blockquote>
+    </section>
+
+    <section class="contato container" id="contato">
+      <h2>Vamos conversar?</h2>
+      <p>Estou em busca da minha primeira oportunidade como desenvolvedora júnior. Se quiser trocar uma ideia, me chama:</p>
+      <div class="links-contato">
+        <!-- TROCAR: coloque seu e-mail, LinkedIn e GitHub reais -->
+        <a href="mailto:seu-email@exemplo.com" class="botao botao-principal">E-mail</a>
+        <a href="#" class="botao botao-secundario">LinkedIn</a>
+        <a href="#" class="botao botao-secundario">GitHub</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <p>Feito por Grazi — em constante deploy.</p>
+  </footer>
+
+</body>
+</html>
