@@ -13,35 +13,36 @@
     <button id="add">Adicionar</button>
 
     <script>
-      const listaTarefas = document.getElementById("lista");
-      const inputTarefa = document.getElementById("texto");
-      const btnAdd = document.getElementById("add");
+      const lista = document.querySelector("#lista");
+const inputTexto = document.querySelector("#texto");
+const btnAdd = document.querySelector("#add");
 
-      btnAdd.addEventListener("click", () => {
-        if (!inputTarefa.value.trim()) return;
+btnAdd.addEventListener("click", function () {
+  const li = document.createElement("li");
+  li.textContent = inputTexto.value;
 
-        const li = document.createElement("li");
-        li.textContent = inputTarefa.value;
+  const botaoRemover = document.createElement("button");
+  botaoRemover.textContent = "remover";
+  botaoRemover.addEventListener("click", function () {
+    li.remove();
+  });
 
-        const btnRemover = document.createElement("button");
-        btnRemover.textContent = "remover";
-        btnRemover.addEventListener("click", () => {
-          li.remove();
-        });
+  const botaoSubir = document.createElement("button");
+  botaoSubir.textContent = "↑";
+  botaoSubir.addEventListener("click", function () {
+    const irmaoAnterior = li.previousElementSibling;
 
-        const btnCima = document.createElement("button");
-        btnCima.textContent = "↑";
-        btnCima.addEventListener("click", () => {
-          if (li.previousElementSibling) {
-            listaTarefas.insertBefore(li, li.previousElementSibling);
-          }
-        });
+    if (irmaoAnterior) {
+      lista.insertBefore(li, irmaoAnterior);
+    }
+  });
 
-        li.appendChild(btnRemover);
-        li.appendChild(btnCima);
-        listaTarefas.appendChild(li);
-        inputTarefa.value = "";
-      });
+  li.appendChild(botaoRemover);
+  li.appendChild(botaoSubir);
+  lista.appendChild(li);
+
+  inputTexto.value = "";
+});
     </script>
   </body>
 </html>
