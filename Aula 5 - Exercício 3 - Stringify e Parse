@@ -12,7 +12,7 @@
         nome: "Grazi",
         idade: 19,
         habilidades: ["Java", "PHP", "Python"],
-        ativo: true
+        ativo: true,
       };
 
       const usuarioTexto = JSON.stringify(usuario);
