@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aula 4 - Exercício 4</title>
+  </head>
+  <body>
+    <div id="relogio">00:00:00</div>
+
+    <script>
+      const relogio = document.querySelector("#relogio");
+
+      function atualizarRelogio() {
+        const agora = new Date();
+
+        let horas = agora.getHours();
+        let minutos = agora.getMinutes();
+        let segundos = agora.getSeconds();
+
+        if (horas < 10) {
+          horas = "0" + horas;
+        }
+        if (minutos < 10) {
+          minutos = "0" + minutos;
+        }
+        if (segundos < 10) {
+          segundos = "0" + segundos;
+        }
+
+        relogio.textContent = horas + ":" + minutos + ":" + segundos;
+      }
+
+      setInterval(atualizarRelogio, 1000);
+    </script>
+  </body>
+</html>
