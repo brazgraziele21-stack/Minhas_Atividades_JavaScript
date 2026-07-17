@@ -21,20 +21,20 @@
             nome: "David",
             idade: 25,
             habilidades: ["HTML", "CSS", "JavaScript"],
-            ativo: true
+            ativo: true,
           },
           {
             nome: "Grazi",
             idade: 19,
             habilidades: ["Java", "PHP", "Python"],
-            ativo: true
+            ativo: true,
           },
           {
             nome: "Matheus",
             idade: 31,
             habilidades: ["C#", "MySQL", "SQL Server"],
-            ativo: false
-          }
+            ativo: true,
+          },
         ];
 
         const usuariosTexto = JSON.stringify(usuarios);
