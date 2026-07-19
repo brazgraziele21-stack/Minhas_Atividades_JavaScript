@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grazi Braz — Full Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f1ea;
+  --panel: #fffdfa;
+  --ink: #372430;
+  --ink-soft: #6e5a67;
+  --berry: #a4436b;
+  --berry-deep: #7d3252;
+  --gold: #bd9760;
+  --sage: #7c8a6e;
+  --line: #e3d6ca;
+  --serif: 'Fraunces', serif;
+  --sans: 'Work Sans', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.65;
+  position: relative;
+}
+
+::selection { background: var(--berry); color: var(--panel); }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--berry); outline-offset: 3px; }
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+}
+
+.thread {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.thread svg { position: absolute; top: 0; left: 32px; height: 100%; overflow: visible; }
+.thread path {
+  fill: none;
+  stroke: var(--berry);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 7;
+  opacity: 0.45;
+}
+
+header.hero {
+  padding: 88px 0 64px;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  color: var(--berry-deep);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.eyebrow::before {
+  content: '';
+  width: 22px; height: 1px;
+  background: var(--berry);
+}
+
+h1.name {
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-size: clamp(42px, 7vw, 64px);
+  line-height: 1.05;
+  color: var(--ink);
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+h1.name em {
+  font-style: italic;
+  color: var(--berry);
+  font-weight: 500;
+}
+
+.hero-desc {
+  font-size: 18px;
+  color: var(--ink-soft);
+  max-width: 52ch;
+  margin-bottom: 14px;
+}
+.hero-desc strong { color: var(--ink); font-weight: 600; }
+.hero-desc code {
+  font-family: var(--mono);
+  font-size: 15px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 1px 7px;
+  border-radius: 5px;
+  color: var(--berry-deep);
+}
+
+.tagline {
+  font-family: var(--mono);
+  font-size: 13.5px;
+  color: var(--berry);
+  margin-bottom: 30px;
+  letter-spacing: 0.02em;
+}
+
+.hero-badges { display: flex; gap: 10px; flex-wrap: wrap; }
+.hero-badges span {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 6px 13px;
+  border-radius: 20px;
+}
+
+section {
+  padding: 64px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+h2.section-title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 30px;
+  color: var(--ink);
+  margin-bottom: 34px;
+}
+
+.swatch-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+.swatch {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 16px;
+  text-align: left;
+}
+
+.swatch .spool {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+
+.swatch h3 {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+
+.swatch p {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--ink-soft);
+}
+
+.project {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 30px 32px;
+  margin-bottom: 20px;
+  position: relative;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.project:hover {
+  box-shadow: 0 18px 40px -22px rgba(55, 36, 48, 0.35);
+  transform: translateY(-3px);
+}
+
+.project-num {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--gold);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.project h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.project p {
+  color: var(--ink-soft);
+  font-size: 15px;
+  margin-bottom: 16px;
+  max-width: 56ch;
+}
+
+.project-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+.project-tags span {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--berry-deep);
+  background: rgba(164, 67, 107, 0.08);
+  border: 1px solid rgba(164, 67, 107, 0.2);
+  padding: 3px 9px;
+  border-radius: 5px;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--berry);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.project-link:hover { border-color: var(--berry); }
+
+.contact-card {
+  background: linear-gradient(150deg, var(--berry-deep), var(--berry));
+  border-radius: 22px;
+  padding: 48px 40px;
+  color: #fdf3f4;
+  text-align: left;
+}
+
+.contact-card h2 {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.contact-card p {
+  color: #f3d9e1;
+  max-width: 48ch;
+  margin-bottom: 26px;
+  font-size: 16px;
+}
+
+.contact-links { display: flex; gap: 12px; flex-wrap: wrap; }
+.contact-links a {
+  font-family: var(--mono);
+  font-size: 13.5px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 10px 18px;
+  border-radius: 20px;
+  transition: background 0.2s ease;
+}
+.contact-links a:hover { background: rgba(255,255,255,0.22); }
+
+footer {
+  padding: 40px 0 60px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+@media (max-width: 640px) {
+  .wrap { padding: 0 20px; }
+  .thread { display: none; }
+  header.hero { padding: 64px 0 48px; }
+  section { padding: 48px 0; }
+  .contact-card { padding: 36px 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="thread" aria-hidden="true">
+  <svg width="2" height="2400" viewBox="0 0 2 2400" preserveAspectRatio="none">
+    <path d="M1,0 L1,2400" />
+  </svg>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">desenvolvedora full stack em formação</div>
+    <h1 class="name">Grazi<br><em>Braz</em></h1>
+    <p class="hero-desc">
+      Estou no início da minha jornada como desenvolvedora, dedicando meu tempo a
+      aprender, praticar e fortalecer minha base. Cada novo aprendizado amplia minha
+      compreensão e aprimora a forma como resolvo problemas. <strong>A constância é o que
+      impulsiona a minha evolução.</strong>
+    </p>
+    <p class="tagline">"Em constante evolução."</p>
+    <div class="hero-badges">
+      <span>Lógica de Programação</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span><span>MySQL</span>
+    </div>
+  </header>
+
+  <section id="skills">
+    <div class="section-label">habilidades</div>
+    <h2 class="section-title">Conhecimentos</h2>
+    <div class="swatch-row">
+      <div class="swatch">
+        <div class="spool" style="background: #94a687;"></div>
+        <h3>Lógica de Programação</h3>
+        <p>base de tudo</p>
+      </div>
+      <div class="swatch">
+        <div class="spool" style="background: #c8a5b3;"></div>
+        <h3>HTML</h3>
+        <p>estrutura</p>
+      </div>
+      <div class="swatch">
+        <div class="spool" style="background: var(--berry-deep);"></div>
+        <h3>CSS</h3>
+        <p>layout</p>
+      </div>
+      <div class="swatch">
+        <div class="spool" style="background: var(--sage);"></div>
+        <h3>JavaScript</h3>
+        <p>lógica &amp; DOM</p>
+      </div>
+      <div class="swatch">
+        <div class="spool" style="background: var(--gold);"></div>
+        <h3>MySQL</h3>
+        <p>banco de dados</p>
+      </div>
+      <div class="swatch">
+        <div class="spool" style="background: var(--berry);"></div>
+        <h3>PHP</h3>
+        <p>em desenvolvimento</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <div class="section-label">trabalhos</div>
+    <h2 class="section-title">Projetos que já construí</h2>
+
+    <div class="project">
+      <span class="project-num">01</span>
+      <h3>DVD Bounce</h3>
+      <p>Animação interativa inspirada no clássico efeito de tela de proteção
+      do DVD, construída com HTML e CSS puro.</p>
+      <div class="project-tags"><span>HTML</span><span>CSS</span></div>
+      <a class="project-link" href="https://github.com/brazgraziele21-stack">ver o código →</a>
+    </div>
+
+    <div class="project">
+      <span class="project-num">02</span>
+      <h3>YouTube — Flexbox</h3>
+      <p>Recriação da página inicial do YouTube usando Flexbox, focando em
+      alinhamento e organização de componentes.</p>
+      <div class="project-tags"><span>HTML</span><span>Flexbox</span></div>
+      <a class="project-link" href="https://github.com/brazgraziele21-stack">ver o código →</a>
+    </div>
+
+    <div class="project">
+      <span class="project-num">03</span>
+      <h3>Spotify — Grid</h3>
+      <p>Recriação da página inicial do Spotify usando CSS Grid, com layout
+      responsivo e ícones ajustados com precisão.</p>
+      <div class="project-tags"><span>HTML</span><span>CSS Grid</span></div>
+      <a class="project-link" href="https://github.com/brazgraziele21-stack">ver o código →</a>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="contact-card">
+      <h2>Vamos conversar?</h2>
+      <p>Estou sempre aberta a novas conexões, trocas de aprendizado e boas
+      conversas sobre tecnologia. Se você tem um projeto, uma dica ou só quer
+      bater um papo sobre código, me chama — vou adorar conversar.</p>
+      <div class="contact-links">
+        <a href="mailto:brazgraziele18@gmail.com">email</a>
+        <a href="https://github.com/brazgraziele21-stack">github</a>
+        <a href="https://www.linkedin.com/in/grazi-braz-139140384">linkedin</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    // portfólio de Grazi Braz — em constante evolução.
+  </footer>
+
+</div>
+</body>
+</html>
