@@ -1,0 +1,23 @@
+const progressBar = document.getElementById("progressBar");
+const backToTopBtn = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  const totalHeight =
+    document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (window.scrollY / totalHeight) * 100;
+
+  progressBar.style.width = `${progress}%`;
+
+  if (window.scrollY > 400) {
+    backToTopBtn.classList.add("show");
+  } else {
+    backToTopBtn.classList.remove("show");
+  }
+});
+
+backToTopBtn.addEventListener("click", () => {
+  document.getElementById("top-hero").scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+});
