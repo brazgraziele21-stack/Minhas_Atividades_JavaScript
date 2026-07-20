@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grazi Braz — Full Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="scroll-progress-container">
+      <div class="scroll-progress-bar" id="progressBar"></div>
+    </div>
+
+    <nav class="nav-bar">
+      <div class="nav-container">
+        <div class="nav-logo">GB</div>
+        <div class="nav-links">
+          <a href="#sobre">// bio</a>
+          <a href="#skills">// skills</a>
+          <a href="#projetos">// portfólio</a>
+          <a href="#depoimentos">// feedbacks</a>
+          <a href="#contato">// contato</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <header class="hero" id="top-hero">
+        <div class="hero-avatar-container">
+          <img
+            src="perfil.png"
+            alt="Foto de perfil de Grazi Braz"
+            class="hero-avatar"
+          />
+        </div>
+
+        <div class="hero-content">
+          <div class="eyebrow">Desenvolvedora full stack em formação</div>
+          <h1 class="name">Grazi<br /><em>Braz</em></h1>
+
+          <div class="hero-desc">
+            <p>
+              Estou no início da minha jornada como desenvolvedora, dedicando
+              meu tempo a aprender, praticar e fortalecer minha base. Cada novo
+              aprendizado amplia minha compreensão e aprimora a forma como
+              resolvo problemas. A constância é o que impulsiona a minha
+              evolução.
+            </p>
+            <p><strong>Sempre aprendendo, sempre melhorando.</strong></p>
+          </div>
+
+          <div class="hero-badges">
+            <span>Lógica de Programação</span><span>HTML</span><span>CSS</span
+            ><span>JavaScript</span><span>PHP</span><span>MySQL</span>
+          </div>
+        </div>
+      </header>
+
+      <section id="sobre">
+        <div class="section-label">minha história</div>
+        <h2 class="section-title">Como comecei na programação</h2>
+        <div style="max-width: 65ch; color: var(--ink-soft)">
+          <p style="margin-bottom: 16px">
+            No dia 6 de abril, dei meu primeiro passo na programação ao iniciar
+            um curso de Programação Básica no Instituto 3C+. Foi um começo
+            desafiador, mas que despertou um interesse genuíno pela área.
+          </p>
+          <p>
+            Ao longo das aulas, bem práticas e focadas em exercícios, venho
+            construindo uma base sólida tanto em Front-end (HTML, CSS,
+            JavaScript) quanto em Back-end (PHP, banco de dados). Ano que vem,
+            pretendo ingressar na faculdade para cursar Tecnologia em Sistemas
+            para Internet (TSI) na UTFPR, e em breve também estarei em busca da
+            minha primeira oportunidade na área para aplicar na prática tudo o
+            que tenho aprendido.
+          </p>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="section-label">habilidades</div>
+        <h2 class="section-title">Conhecimentos Acadêmicos</h2>
+        <div class="skills-list">
+          <div class="skill-row">
+            <div class="skill-meta">
+              <div class="skill-dot" style="background: #94a687"></div>
+              <h3>Lógica</h3>
+            </div>
+            <p>
+              Onde tudo começou. Desenvolvi meus primeiros algoritmos
+              estruturados utilizando Portugol. Pratiquei intensamente o uso de
+              variáveis, condicionais, vetores e estruturas de repetição para
+              treinar minha mente a pensar de forma analítica antes de codificar
+              em qualquer linguagem.
+            </p>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-meta">
+              <div class="skill-dot" style="background: #c8a5b3"></div>
+              <h3>HTML</h3>
+            </div>
+            <p>
+              Aprendi a estruturar páginas web utilizando tags semânticas. Meus
+              exercícios focam em organizar o conteúdo de forma limpa, acessível
+              e bem estruturado, preparando o esqueleto ideal para receber
+              estilizações complexas.
+            </p>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-meta">
+              <div
+                class="skill-dot"
+                style="background: var(--berry-deep)"
+              ></div>
+              <h3>CSS</h3>
+            </div>
+            <p>
+              Dominando o visual. Pratico a criação de layouts modernos
+              aplicando conceitos de design responsivo. Tenho focado meus
+              treinos no uso de ferramentas essenciais de posicionamento como
+              Flexbox e CSS Grid para garantir que as telas fiquem perfeitas em
+              qualquer tamanho.
+            </p>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-meta">
+              <div class="skill-dot" style="background: var(--gold)"></div>
+              <h3>JavaScript</h3>
+            </div>
+            <p>
+              Responsável por trazer vida e dinamismo para as minhas páginas.
+              Utilizo a linguagem para entender manipulação do DOM, capturar e
+              tratar eventos de cliques, criar interatividades fluidas e validar
+              dados inseridos em formulários.
+            </p>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-meta">
+              <div class="skill-dot" style="background: #7c8a6e"></div>
+              <h3>MySQL</h3>
+            </div>
+            <p>
+              Minha introdução à persistência de dados. Estou aprendendo a
+              estruturar tabelas lógicas, compreender relacionamentos de dados e
+              realizar consultas básicas em bancos relacionais usando comandos
+              estruturados.
+            </p>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-meta">
+              <div class="skill-dot" style="background: var(--berry)"></div>
+              <h3>PHP</h3>
+            </div>
+            <p>
+              Meu primeiro contato com o Back-end e processamento no servidor.
+              Atualmente em pleno desenvolvimento de estudos, focado em entender
+              como conectar o front-end com o servidor e trafegar informações de
+              forma dinâmica.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projetos">
+        <div class="section-label">trabalhos</div>
+        <h2 class="section-title">Projetos que já construí</h2>
+        <div class="project-grid">
+          <div class="project">
+            <span class="project-num">01</span>
+            <h3>DVD Bounce</h3>
+            <p>
+              Um clássico: aquela animação da tela de proteção do DVD quicando
+              pelos cantos da tela. Fiz esse projeto pra treinar animações em
+              CSS, usando `@keyframes` pra controlar o movimento.
+            </p>
+            <div class="project-tags">
+              <span>HTML</span><span>CSS Animations</span>
+            </div>
+            <a
+              class="project-link"
+              href="https://github.com/brazgraziele21-stack"
+              target="_blank"
+              >ver o código →</a
+            >
+          </div>
+
+          <div class="project">
+            <span class="project-num">02</span>
+            <h3>YouTube — Flexbox</h3>
+            <p>
+              Recriei a página inicial do YouTube pra praticar Flexbox, uma
+              ferramenta de CSS que ajuda a organizar e alinhar os elementos da
+              tela de forma mais fácil.
+            </p>
+            <div class="project-tags">
+              <span>HTML</span><span>CSS Flexbox</span>
+            </div>
+            <a
+              class="project-link"
+              href="https://github.com/brazgraziele21-stack"
+              target="_blank"
+              >ver o código →</a
+            >
+          </div>
+
+          <div class="project">
+            <span class="project-num">03</span>
+            <h3>Spotify — Grid</h3>
+            <p>
+              Recriei a interface do Spotify pra praticar CSS Grid, outra forma
+              de organizar o layout da página — nesse caso, focando em dividir a
+              tela em painéis, como o menu lateral fixo.
+            </p>
+            <div class="project-tags">
+              <span>HTML</span><span>CSS Grid</span>
+            </div>
+            <a
+              class="project-link"
+              href="https://github.com/brazgraziele21-stack"
+              target="_blank"
+              >ver o código →</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section id="depoimentos">
+        <div class="section-label">Resultados &amp; Prova Social</div>
+        <h2 class="section-title">Minha Trajetória em Números e Feedbacks</h2>
+
+        <div class="metrics-container">
+          <div class="metric-box">
+            <div
+              style="
+                font-family: var(--serif);
+                font-size: 32px;
+                font-weight: 700;
+                color: var(--berry);
+                line-height: 1;
+              "
+            >
+              03
+            </div>
+            <div
+              style="
+                font-family: var(--mono);
+                font-size: 11px;
+                color: var(--ink-soft);
+                text-transform: uppercase;
+                margin-top: 6px;
+              "
+            >
+              Projetos feitos
+            </div>
+          </div>
+          <div class="metric-box">
+            <div
+              style="
+                font-family: var(--serif);
+                font-size: 32px;
+                font-weight: 700;
+                color: var(--berry);
+                line-height: 1;
+              "
+            >
+              +30
+            </div>
+            <div
+              style="
+                font-family: var(--mono);
+                font-size: 11px;
+                color: var(--ink-soft);
+                text-transform: uppercase;
+                margin-top: 6px;
+              "
+            >
+              Exercícios práticos
+            </div>
+          </div>
+          <div class="metric-box">
+            <div
+              style="
+                font-family: var(--serif);
+                font-size: 32px;
+                font-weight: 700;
+                color: var(--berry);
+                line-height: 1;
+              "
+            >
+              01
+            </div>
+            <div
+              style="
+                font-family: var(--mono);
+                font-size: 11px;
+                color: var(--ink-soft);
+                text-transform: uppercase;
+                margin-top: 6px;
+              "
+            >
+              Início na jornada
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "A Grazi entregou todas as atividades e deu para ver que ela
+              melhorou bastante desde o início até agora."
+            </p>
+            <div class="testimonial-author">
+              — Gladston K., Professor do Curso
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "Para quem teve o primeiro contato com a programação agora, você
+              foi muito bem."
+            </p>
+            <div class="testimonial-author">— Gustavo F., Colega de Turma</div>
+          </div>
+
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "Gostei bastante de algumas atividades que a Grazi fez e mostrou
+              na aula."
+            </p>
+            <div class="testimonial-author">— Sandra B., Colega de Turma</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contato">
+        <div class="contact-card">
+          <h2>Vamos construir algo juntos?</h2>
+          <p>
+            Estou sempre aberta a trocar ideias, aprender com outras pessoas e
+            conhecer novas oportunidades na área. Se você quer conversar,
+            colaborar em um projeto ou simplesmente trocar uma ideia sobre
+            tecnologia, será um prazer receber sua mensagem!
+          </p>
+          <div class="contact-links">
+            <a href="mailto:brazgraziele18@gmail.com">email</a>
+            <a href="https://github.com/brazgraziele21-stack" target="_blank"
+              >github</a
+            >
+            <a
+              href="https://www.linkedin.com/in/grazi-braz-139140384"
+              target="_blank"
+              >linkedin</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        // Portfólio de Grazi Braz — Desenvolvedora em Constante Evolução.
+      </footer>
+    </div>
+
+    <div class="back-to-top" id="backToTop" title="Voltar ao topo">↑</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
