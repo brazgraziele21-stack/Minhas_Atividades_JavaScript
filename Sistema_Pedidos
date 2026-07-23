@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monte sua Caixa de Brigadeiros</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #fdf6f0; margin: 0; padding: 20px; color: #4a3525; }
+        .container { max-width: 400px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #b2533e; font-size: 24px; margin-bottom: 5px; }
+        .subtitle { text-align: center; font-size: 14px; margin-bottom: 20px; color: #7a6353; }
+        .box-status { background: #fff4f0; text-align: center; padding: 12px; border-radius: 8px; font-weight: bold; margin-bottom: 20px; border: 1px dashed #b2533e; color: #b2533e; }
+        .sabor-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f6dcd4; }
+        .sabor-nome { font-weight: 500; }
+        .counter { display: flex; align-items: center; }
+        button.btn-qty { background: #b2533e; color: #fff; border: none; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; }
+        button.btn-qty:disabled { background: #e0d0cc; cursor: not-allowed; }
+        .qtd-sabor { margin: 0 10px; font-weight: bold; min-width: 15px; text-align: center; }
+        .summary { margin-top: 25px; padding-top: 15px; border-top: 2px dashed #f6dcd4; text-align: center; }
+        .price { font-size: 18px; color: #7a3b2b; margin-bottom: 15px; }
+        .btn-order { background: #25d366; color: white; border: none; width: 100%; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; }
+        .btn-order:disabled { background: #ccc; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Monte sua Caixa</h1>
+    <div class="subtitle">Escolha exatamente 4 brigadeiros</div>
+
+    <div class="box-status" id="status-texto">Sua caixa está vazia (0/4)</div>
+
+    <div id="lista-sabores">
+        <!-- Sabores gerados dinamicamente via JavaScript -->
+    </div>
+
+    <div class="summary">
+        <div class="price">Valor da Caixa: <strong>R$ 16,00</strong></div>
+        <button id="btnEnviar" class="btn-order" onclick="enviarWhatsApp()" disabled>Pedir no WhatsApp</button>
+    </div>
+</div>
+
+<script>
+    const LIMITE_CAIXA = 4;
+    const precoCaixa = 16.00;
+    const telefoneWhatsApp = "5542999999999"; // Substitua pelo seu número com DDD
+
+    const sabores = [
+        { id: 'tradicional', nome: '🍫 Brigadeiro Tradicional', qtd: 0 },
+        { id: 'ninho', nome: '🥛 Ninho com Nutella', qtd: 0 },
+        { id: 'beijinho', nome: '🥥 Beijinho de Côco', qtd: 0 },
+        { id: 'bicho', nome: '🍓 Bicho de Pé (Morango)', qtd: 0 },
+        { id: 'churros', nome: '🥮 Churros com Doce de Leite', qtd: 0 }
+    ];
+
+    function renderizarSabores() {
+        const container = document.getElementById('lista-sabores');
+        const totalAtual = obterTotalDoces();
+        
+        container.innerHTML = sabores.map(sabor => `
+            <div class="sabor-item">
+                <span class="sabor-nome">${sabor.nome}</span>
+                <div class="counter">
+                    <button class="btn-qty" onclick="alterarQtd('${sabor.id}', -1)" ${sabor.qtd === 0 ? 'disabled' : ''}>-</button>
+                    <span class="qtd-sabor">${sabor.qtd}</span>
+                    <button class="btn-qty" onclick="alterarQtd('${sabor.id}', 1)" ${totalAtual >= LIMITE_CAIXA ? 'disabled' : ''}>+</button>
+                </div>
+            </div>
+        `).join('');
+
+        atualizarStatus(totalAtual);
+    }
+
+    function obterTotalDoces() {
+        return sabores.reduce((acc, curr) => acc + curr.qtd, 0);
+    }
+
+    function alterarQtd(id, mudança) {
+        const sabor = sabores.find(s => s.id === id);
+        if (sabor) {
+            sabor.qtd += mudança;
+            renderizarSabores();
+        }
+    }
+
+    function atualizarStatus(total) {
+        const statusTexto = document.getElementById('status-texto');
+        const btnEnviar = document.getElementById('btnEnviar');
+
+        if (total === 0) {
+            statusTexto.innerText = `Sua caixa está vazia (0/${LIMITE_CAIXA})`;
+            statusTexto.style.color = "#b2533e";
+            statusTexto.style.background = "#fff4f0";
+            btnEnviar.disabled = true;
+        } else if (total < LIMITE_CAIXA) {
+            statusTexto.innerText = `Falta(m) ${LIMITE_CAIXA - total} brigadeiro(s) (${total}/${LIMITE_CAIXA})`;
+            statusTexto.style.color = "#b2533e";
+            statusTexto.style.background = "#fff4f0";
+            btnEnviar.disabled = true;
+        } else {
+            statusTexto.innerText = `Caixa completa! ✨ (${total}/${LIMITE_CAIXA})`;
+            statusTexto.style.color = "#2e7d32";
+            statusTexto.style.background = "#e8f5e9";
+            btnEnviar.disabled = false;
+        }
+    }
+
+    function enviarWhatsApp() {
+        if (obterTotalDoces() !== LIMITE_CAIXA) return;
+
+        const itensEscolhidos = sabores
+            .filter(s => s.qtd > 0)
+            .map(s => `- ${s.qtd}x ${s.nome}`)
+            .join('\n');
+
+        const mensagem = `Olá! Montei minha caixinha de brigadeiros:\n\n${itensEscolhidos}\n\nTotal: R$ ${precoCaixa.toFixed(2).replace('.', ',')}`;
+        const url = `https://whatsapp.com{telefoneWhatsApp}&text=${encodeURIComponent(mensagem)}`;
+        window.open(url, '_blank');
+    }
+
+    // Inicializa a tela
+    renderizarSabores();
+</script>
+
+</body>
+</html>
