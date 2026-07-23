@@ -1,0 +1,882 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grazi Braz — Full Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f7f1ea;
+  color: #372430;
+  font-family: "Work Sans", sans-serif;
+  line-height: 1.65;
+  position: relative;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+:focus-visible {
+  outline: 2px solid #a4436b;
+  outline-offset: 3px;
+}
+
+.barra-progresso-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: transparent;
+  z-index: 2000;
+}
+.barra-progresso {
+  height: 100%;
+  background: #a4436b;
+  width: 0%;
+}
+
+nav.barra-navegacao {
+  position: sticky;
+  top: 0;
+  background: rgba(247, 241, 234, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px dashed rgba(227, 214, 202, 0.5);
+  z-index: 1000;
+  padding: 16px 0;
+}
+.navegacao-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navegacao-logo {
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #7d3252;
+}
+.navegacao-links {
+  display: flex;
+  gap: 14px;
+}
+.navegacao-links a {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: #6e5a67;
+  transition: color 0.2s ease;
+}
+.navegacao-links a:hover {
+  color: #a4436b;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+}
+
+header.topo {
+  padding: 60px 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.topo-foto-container {
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+}
+.topo-foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #fffdfa;
+  box-shadow: 0 8px 24px -10px rgba(55, 36, 48, 0.2);
+}
+
+.topo-conteudo {
+  display: flex;
+  flex-direction: column;
+}
+
+.rotulo-pequeno {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: #7d3252;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.rotulo-pequeno::before {
+  content: "";
+  width: 20px;
+  height: 1px;
+  background: #a4436b;
+}
+
+h1.nome {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: clamp(38px, 7vw, 64px);
+  line-height: 1.1;
+  color: #372430;
+  margin-bottom: 20px;
+}
+h1.nome em {
+  font-style: italic;
+  color: #a4436b;
+  font-weight: 500;
+}
+
+.topo-descricao {
+  font-size: 16.5px;
+  color: #6e5a67;
+  margin-bottom: 24px;
+}
+.topo-descricao p {
+  margin-bottom: 12px;
+}
+.topo-descricao strong {
+  color: #372430;
+  font-weight: 600;
+}
+
+.topo-habilidades {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.topo-habilidades span {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: #6e5a67;
+  background: #fffdfa;
+  border: 1px solid #e3d6ca;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+section {
+  padding: 60px 0;
+  position: relative;
+  z-index: 1;
+  border-top: 1px dashed rgba(227, 214, 202, 0.6);
+}
+
+.secao-rotulo {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #bd9760;
+  margin-bottom: 10px;
+}
+
+h2.secao-titulo {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 28px;
+  color: #372430;
+  margin-bottom: 32px;
+}
+
+.habilidades-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.habilidade-linha {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  transition: background 0.25s ease;
+}
+.habilidade-linha:hover {
+  background: rgba(255, 253, 250, 0.6);
+}
+.habilidade-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.habilidade-marcador {
+  width: 10px;
+  height: 24px;
+  border-radius: 4px;
+}
+.habilidade-linha h3 {
+  font-family: "Fraunces", serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #372430;
+}
+.habilidade-linha p {
+  font-size: 14.5px;
+  color: #6e5a67;
+}
+
+.projetos-grade {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.projeto-card {
+  background: #fffdfa;
+  border: 1px solid #e3d6ca;
+  border-radius: 18px;
+  padding: 24px;
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+.projeto-card:hover {
+  box-shadow: 0 14px 35px -20px rgba(55, 36, 48, 0.3);
+  transform: translateY(-3px);
+  border-color: #a4436b;
+}
+.projeto-numero {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: #bd9760;
+  margin-bottom: 8px;
+  display: block;
+}
+.projeto-card h3 {
+  font-family: "Fraunces", serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #372430;
+  margin-bottom: 8px;
+}
+.projeto-card p {
+  color: #6e5a67;
+  font-size: 14.5px;
+  margin-bottom: 14px;
+}
+.projeto-etiquetas {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.projeto-etiquetas span {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: #7d3252;
+  background: rgba(164, 67, 107, 0.08);
+  border: 1px solid rgba(164, 67, 107, 0.2);
+  padding: 3px 8px;
+  border-radius: 5px;
+}
+.projeto-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12.5px;
+  color: #a4436b;
+}
+
+.metricas-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+.metrica-caixa {
+  background: #fffdfa;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e3d6ca;
+}
+.depoimentos-grade {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.depoimento-card {
+  background: #fffdfa;
+  border-left: 3px solid #a4436b;
+  padding: 24px;
+  border-radius: 0 16px 16px 0;
+  box-shadow: 0 4px 15px -10px rgba(55, 36, 48, 0.1);
+}
+.depoimento-texto {
+  font-style: italic;
+  font-size: 14.5px;
+  color: #372430;
+  margin-bottom: 12px;
+}
+.depoimento-autor {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: #bd9760;
+  font-weight: 500;
+}
+
+.contato-card {
+  background: linear-gradient(150deg, #7d3252, #a4436b);
+  border-radius: 22px;
+  padding: 36px 24px;
+  color: #fdf3f4;
+}
+.contato-card h2 {
+  font-family: "Fraunces", serif;
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.contato-card p {
+  color: #f3d9e1;
+  margin-bottom: 24px;
+  font-size: 15px;
+}
+.contato-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.contato-links a {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: background 0.2s ease;
+}
+.contato-links a:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.voltar-topo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #a4436b;
+  color: #fffdfa;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(55, 36, 48, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s,
+    visibility 0.3s,
+    transform 0.3s;
+  z-index: 1500;
+}
+.voltar-topo.mostrar {
+  opacity: 1;
+  visibility: visible;
+}
+.voltar-topo:hover {
+  transform: translateY(-4px);
+  background: #7d3252;
+}
+
+footer {
+  padding: 40px 0 60px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: #6e5a67;
+  border-top: 1px dashed rgba(227, 214, 202, 0.6);
+}
+
+@media (min-width: 768px) {
+  .navegacao-container {
+    padding: 0 32px;
+  }
+  .navegacao-links {
+    gap: 20px;
+    font-size: 13px;
+  }
+  .container {
+    padding: 0 32px;
+  }
+
+  header.topo {
+    padding: 80px 0 70px;
+    flex-direction: row;
+    align-items: center;
+    gap: 48px;
+  }
+  .topo-foto-container {
+    width: 180px;
+    height: 180px;
+  }
+
+  section {
+    padding: 80px 0;
+  }
+  h2.secao-titulo {
+    font-size: 32px;
+  }
+
+  .habilidade-linha {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .projetos-grade {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .metricas-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .depoimentos-grade {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .contato-card {
+    padding: 54px 48px;
+  }
+  .contato-card h2 {
+    font-size: 36px;
+  }
+  .voltar-topo {
+    bottom: 30px;
+    right: 30px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <div class="barra-progresso-container">
+      <div class="barra-progresso" id="barraProgresso"></div>
+    </div>
+
+    <nav class="barra-navegacao">
+      <div class="navegacao-container">
+        <div class="navegacao-logo">GB</div>
+        <div class="navegacao-links">
+          <a href="#sobre">// bio</a>
+          <a href="#skills">// skills</a>
+          <a href="#projetos">// portfólio</a>
+          <a href="#depoimentos">// feedbacks</a>
+          <a href="#contato">// contato</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <header class="topo" id="topo-inicio">
+        <div class="topo-foto-container">
+          <img
+            src="perfil.png"
+            alt="Foto de perfil de Grazi Braz"
+            class="topo-foto"
+          />
+        </div>
+
+        <div class="topo-conteudo">
+          <div class="rotulo-pequeno">Desenvolvedora full stack em formação</div>
+          <h1 class="nome">Grazi<br /><em>Braz</em></h1>
+
+          <div class="topo-descricao">
+            <p>
+              Estou no início da minha jornada como desenvolvedora, dedicando
+              meu tempo a aprender, praticar e fortalecer minha base. Cada novo
+              aprendizado amplia minha compreensão e aprimora a forma como
+              resolvo problemas. A constância é o que impulsiona a minha
+              evolução.
+            </p>
+            <p><strong>Sempre aprendendo, sempre melhorando.</strong></p>
+          </div>
+
+          <div class="topo-habilidades">
+            <span>Lógica de Programação</span><span>HTML</span><span>CSS</span
+            ><span>JavaScript</span><span>PHP</span><span>MySQL</span>
+          </div>
+        </div>
+      </header>
+
+      <section id="sobre">
+        <div class="secao-rotulo">minha história</div>
+        <h2 class="secao-titulo">Como comecei na programação</h2>
+        <div style="max-width: 65ch; color: #6e5a67">
+          <p style="margin-bottom: 16px">
+            No dia 6 de abril, dei meu primeiro passo na programação ao iniciar
+            um curso de Programação Básica no Instituto 3C+. Foi um começo
+            desafiador, mas que despertou um interesse genuíno pela área.
+          </p>
+          <p>
+            Ao longo das aulas, bem práticas e focadas em exercícios, venho
+            construindo uma base sólida tanto em Front-end (HTML, CSS,
+            JavaScript) quanto em Back-end (PHP, banco de dados). Ano que vem,
+            pretendo ingressar na faculdade para cursar Tecnologia em Sistemas
+            para Internet (TSI) na UTFPR, e em breve também estarei em busca da
+            minha primeira oportunidade na área para aplicar na prática tudo o
+            que tenho aprendido.
+          </p>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="secao-rotulo">habilidades</div>
+        <h2 class="secao-titulo">Conhecimentos Acadêmicos</h2>
+        <div class="habilidades-lista">
+          <div class="habilidade-linha">
+            <div class="habilidade-info">
+              <div class="habilidade-marcador" style="background: #94a687"></div>
+              <h3>Lógica</h3>
+            </div>
+            <p>
+              Onde tudo começou. Desenvolvi meus primeiros algoritmos
+              estruturados utilizando Portugol. Pratiquei intensamente o uso de
+              variáveis, condicionais, vetores e estruturas de repetição para
+              treinar minha mente a pensar de forma analítica antes de codificar
+              em qualquer linguagem.
+            </p>
+          </div>
+
+          <div class="habilidade-linha">
+            <div class="habilidade-info">
+              <div class="habilidade-marcador" style="background: #c8a5b3"></div>
+              <h3>HTML</h3>
+            </div>
+            <p>
+              Aprendi a estruturar páginas web utilizando tags semânticas. Meus
+              exercícios focam em organizar o conteúdo de forma limpa, acessível
+              e bem estruturado, preparando o esqueleto ideal para receber
+              estilizações complexas.
+            </p>
+          </div>
+
+          <div class="habilidade-linha">
+            <div class="habilidade-info">
+              <div
+                class="habilidade-marcador"
+                style="background: #7d3252"
+              ></div>
+              <h3>CSS</h3>
+            </div>
+            <p>
+              Dominando o visual. Pratico a criação de layouts modernos
+              aplicando conceitos de design responsivo. Tenho focado meus
+              treinos no uso de ferramentas essenciais de posicionamento como
+              Flexbox e CSS Grid para garantir que as telas fiquem perfeitas em
+              qualquer tamanho.
+            </p>
+          </div>
+
+          <div class="habilidade-linha">
+            <div class="habilidade-info">
+              <div class="habilidade-marcador" style="background: #bd9760"></div>
+              <h3>JavaScript</h3>
+            </div>
+            <p>
+              Responsável por trazer vida e dinamismo para as minhas páginas.
+              Utilizo a linguagem para entender manipulação do DOM, capturar e
+              tratar eventos de cliques, criar interatividades fluidas e validar
+              dados inseridos em formulários.
+            </p>
+          </div>
+
+          <div class="habilidade-linha">
+            <div class="habilidade-info">
+              <div class="habilidade-marcador" style="background: #7c8a6e"></div>
+              <h3>MySQL</h3>
+            </div>
+            <p>
+              Minha introdução à persistência de dados. Estou aprendendo a
+              estruturar tabelas lógicas, compreender relacionamentos de dados e
+              realizar consultas básicas em bancos relacionais usando comandos
+              estruturados.
+            </p>
+          </div>
+
+          <div class="habilidade-linha">
+            <div class="habilidade-info">
+              <div class="habilidade-marcador" style="background: #a4436b"></div>
+              <h3>PHP</h3>
+            </div>
+            <p>
+              Meu primeiro contato com o Back-end e processamento no servidor.
+              Atualmente em pleno desenvolvimento de estudos, focado em entender
+              como conectar o front-end com o servidor e trafegar informações de
+              forma dinâmica.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projetos">
+        <div class="secao-rotulo">trabalhos</div>
+        <h2 class="secao-titulo">Projetos que já construí</h2>
+        <div class="projetos-grade">
+          <div class="projeto-card">
+            <span class="projeto-numero">01</span>
+            <h3>DVD Bounce</h3>
+            <p>
+              Um clássico: aquela animação da tela de proteção do DVD quicando
+              pelos cantos da tela. Fiz esse projeto pra treinar animações em
+              CSS, usando `@keyframes` pra controlar o movimento.
+            </p>
+            <div class="projeto-etiquetas">
+              <span>HTML</span><span>CSS Animations</span>
+            </div>
+            <a
+              class="projeto-link"
+              href="https://github.com/brazgraziele21-stack"
+              target="_blank"
+              >ver o código →</a
+            >
+          </div>
+
+          <div class="projeto-card">
+            <span class="projeto-numero">02</span>
+            <h3>YouTube — Flexbox</h3>
+            <p>
+              Recriei a página inicial do YouTube pra praticar Flexbox, uma
+              ferramenta de CSS que ajuda a organizar e alinhar os elementos da
+              tela de forma mais fácil.
+            </p>
+            <div class="projeto-etiquetas">
+              <span>HTML</span><span>CSS Flexbox</span>
+            </div>
+            <a
+              class="projeto-link"
+              href="https://github.com/brazgraziele21-stack"
+              target="_blank"
+              >ver o código →</a
+            >
+          </div>
+
+          <div class="projeto-card">
+            <span class="projeto-numero">03</span>
+            <h3>Spotify — Grid</h3>
+            <p>
+              Recriei a interface do Spotify pra praticar CSS Grid, outra forma
+              de organizar o layout da página — nesse caso, focando em dividir a
+              tela em painéis, como o menu lateral fixo.
+            </p>
+            <div class="projeto-etiquetas">
+              <span>HTML</span><span>CSS Grid</span>
+            </div>
+            <a
+              class="projeto-link"
+              href="https://github.com/brazgraziele21-stack"
+              target="_blank"
+              >ver o código →</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section id="depoimentos">
+        <div class="secao-rotulo">Resultados &amp; Prova Social</div>
+        <h2 class="secao-titulo">Minha Trajetória em Números e Feedbacks</h2>
+
+        <div class="metricas-container">
+          <div class="metrica-caixa">
+            <div
+              style="
+                font-family: 'Fraunces', serif;
+                font-size: 32px;
+                font-weight: 700;
+                color: #a4436b;
+                line-height: 1;
+              "
+            >
+              03
+            </div>
+            <div
+              style="
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 11px;
+                color: #6e5a67;
+                text-transform: uppercase;
+                margin-top: 6px;
+              "
+            >
+              Projetos feitos
+            </div>
+          </div>
+          <div class="metrica-caixa">
+            <div
+              style="
+                font-family: 'Fraunces', serif;
+                font-size: 32px;
+                font-weight: 700;
+                color: #a4436b;
+                line-height: 1;
+              "
+            >
+              +30
+            </div>
+            <div
+              style="
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 11px;
+                color: #6e5a67;
+                text-transform: uppercase;
+                margin-top: 6px;
+              "
+            >
+              Exercícios práticos
+            </div>
+          </div>
+          <div class="metrica-caixa">
+            <div
+              style="
+                font-family: 'Fraunces', serif;
+                font-size: 32px;
+                font-weight: 700;
+                color: #a4436b;
+                line-height: 1;
+              "
+            >
+              01
+            </div>
+            <div
+              style="
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 11px;
+                color: #6e5a67;
+                text-transform: uppercase;
+                margin-top: 6px;
+              "
+            >
+              Início na jornada
+            </div>
+          </div>
+        </div>
+
+        <div class="depoimentos-grade">
+          <div class="depoimento-card">
+            <p class="depoimento-texto">
+              "A Grazi entregou todas as atividades e deu para ver que ela
+              melhorou bastante desde o início até agora."
+            </p>
+            <div class="depoimento-autor">
+              — Gladston K., Professor do Curso
+            </div>
+          </div>
+
+          <div class="depoimento-card">
+            <p class="depoimento-texto">
+              "Para quem teve o primeiro contato com a programação agora, você
+              foi muito bem."
+            </p>
+            <div class="depoimento-autor">— Gustavo F., Colega de Turma</div>
+          </div>
+
+          <div class="depoimento-card">
+            <p class="depoimento-texto">
+              "Gostei bastante de algumas atividades que a Grazi fez e mostrou
+              na aula."
+            </p>
+            <div class="depoimento-autor">— Sandra B., Colega de Turma</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contato">
+        <div class="contato-card">
+          <h2>Vamos construir algo juntos?</h2>
+          <p>
+            Estou sempre aberta a trocar ideias, aprender com outras pessoas e
+            conhecer novas oportunidades na área. Se você quer conversar,
+            colaborar em um projeto ou simplesmente trocar uma ideia sobre
+            tecnologia, será um prazer receber sua mensagem!
+          </p>
+          <div class="contato-links">
+            <a href="mailto:brazgraziele18@gmail.com">email</a>
+            <a href="https://github.com/brazgraziele21-stack" target="_blank"
+              >github</a
+            >
+            <a
+              href="https://www.linkedin.com/in/grazi-braz-139140384"
+              target="_blank"
+              >linkedin</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        // Portfólio de Grazi Braz — Desenvolvedora em Constante Evolução.
+      </footer>
+    </div>
+
+    <div class="voltar-topo" id="botaoVoltarTopo" title="Voltar ao topo">↑</div>
+
+    <script>
+        const barraProgresso = document.getElementById("barraProgresso");
+const botaoVoltarTopo = document.getElementById("botaoVoltarTopo");
+
+window.addEventListener("scroll", () => {
+  const alturaTotal =
+    document.documentElement.scrollHeight - window.innerHeight;
+  const progresso = (window.scrollY / alturaTotal) * 100;
+
+  barraProgresso.style.width = `${progresso}%`;
+
+  if (window.scrollY > 400) {
+    botaoVoltarTopo.classList.add("mostrar");
+  } else {
+    botaoVoltarTopo.classList.remove("mostrar");
+  }
+});
+
+botaoVoltarTopo.addEventListener("click", () => {
+  document.getElementById("topo-inicio").scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+});
+    </script>
+  </body>
+</html>
